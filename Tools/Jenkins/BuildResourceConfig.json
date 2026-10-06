@@ -1,0 +1,11 @@
+{
+  "ResourceOutputDir": "AB",
+  "Platform": "StandaloneWindows64",
+  "ForceRebuild": false,
+  "ResourceVersion": 1,
+  "UpdatePrefixUrl": "",
+  "ApplicableVersions": "0.1.0",
+  "ForceUpdate": false,
+  "AppUpdateUrl": "",
+  "AppUpdateDescription": ""
+}

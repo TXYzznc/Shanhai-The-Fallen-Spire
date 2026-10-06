@@ -1,0 +1,5 @@
+#	LanguagesTable					
+#	ID		LanguageKey	AssetName	LanguageDisplay	LanguageIcon
+#	int		string	string	string	string
+#			Framework fallback language			
+	1		English	English	English	

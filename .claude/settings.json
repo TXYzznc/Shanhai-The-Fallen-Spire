@@ -1,0 +1,41 @@
+{
+  "_comment": "统一 hooks：注入协作入口、检测决策门槛并记录工具使用事件。",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "_comment": "记录 Tool/Skill/Agent/MCP 调用频次到 .ai/usage/events.jsonl。脚本静默失败，不记录 Prompt 或参数。",
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python tools/log_tool_usage.py hook --source claude-code"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python tools/log_tool_usage.py hook --source claude-code --event session"
+          },
+          {
+            "type": "command",
+            "command": "node tools/codex_prompt_hook.js session"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node tools/codex_prompt_hook.js prompt"
+          }
+        ]
+      }
+    ]
+  }
+}

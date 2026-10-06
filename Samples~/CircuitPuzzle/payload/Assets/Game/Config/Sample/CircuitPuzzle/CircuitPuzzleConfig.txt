@@ -1,0 +1,7 @@
+﻿#	电路拼图运行配置		
+#	Id		Value
+#	int		string
+#	配置编号		配置值
+	1	Sample.CircuitPuzzle.DefaultLevel	1
+	2	Sample.CircuitPuzzle.ShowFrameworkStatus	true
+	3	Sample.CircuitPuzzle.TitleTint	#9FC5FF

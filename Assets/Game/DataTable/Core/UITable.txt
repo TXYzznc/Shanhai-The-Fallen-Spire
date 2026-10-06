@@ -1,0 +1,4 @@
+#	UI table
+#	Id		SortOrder	UIPrefab	PauseCoveredUI	UIGroupId	EscapeClose
+#	int		int	string	bool	int	bool
+#			Project UI entries are intentionally empty in the framework baseline.

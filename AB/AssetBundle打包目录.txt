@@ -1,0 +1,2 @@
+This directory is intentionally kept as a project-relative AssetBundle build output placeholder.
+Configure a project-specific output directory in the GF_X App Builder before building resources.

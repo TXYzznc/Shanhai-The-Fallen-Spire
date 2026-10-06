@@ -1,0 +1,2 @@
+@echo off
+echo {"ResourceOutputDir":"%ResourceOutputDir%","Platform":"%Platform%","ForceRebuild":%ForceRebuild%,"ResourceVersion":%ResourceVersion%,"UpdatePrefixUrl":"%UpdatePrefixUrl%","ApplicableVersions":"%ApplicableVersions%","ForceUpdate":%ForceUpdate%,"AppUpdateUrl":"%AppUpdateUrl%","AppUpdateDescription":"%AppUpdateDescription%"}>"%ProjectRoot%\Tools\Jenkins\BuildResourceConfig.json"

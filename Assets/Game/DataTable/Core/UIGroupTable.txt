@@ -1,0 +1,7 @@
+#	UIGroup			
+#	ID		Name	Depth
+#	int		string	int
+#			Framework default UI groups	
+	1		Default	1
+	2		Dialog	200
+	3		Overlay	500

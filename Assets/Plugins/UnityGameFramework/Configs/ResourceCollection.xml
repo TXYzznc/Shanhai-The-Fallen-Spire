@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UnityGameFramework>
+  <ResourceCollection>
+    <Resources>
+      <Resource Name="Config" LoadType="0" Packed="False" />
+      <Resource Name="Core" LoadType="0" Packed="False" />
+      <Resource Name="DataTable" LoadType="0" Packed="False" />
+      <Resource Name="Entity" LoadType="0" Packed="False" />
+      <Resource Name="HotfixDlls" LoadType="0" Packed="False" />
+      <Resource Name="Language" LoadType="0" Packed="False" />
+      <Resource Name="Scene" LoadType="0" Packed="False" />
+      <Resource Name="ScriptableAssets" LoadType="0" Packed="False" />
+      <Resource Name="SharedAssets" LoadType="2" Packed="False" />
+      <Resource Name="UI" LoadType="0" Packed="False" />
+    </Resources>
+    <Assets />
+  </ResourceCollection>
+</UnityGameFramework>

@@ -1,0 +1,6 @@
+#	SoundGroup						
+#	ID		Name	SoundAgentCount	AvoidBeingReplacedBySamePriority	Mute	Volume
+#	int		string	int	bool	bool	float
+#			Framework default sound groups				
+	1		Music	1	False	False	1
+	2		Sound	4	False	False	1

@@ -1,0 +1,159 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# 自定义 Console 日志导出目录（ConsoleLogExporterPanel）
+输出日志/
+
+# Unity build outputs
+[Bb]uild/
+[Bb]uilds/
+[Aa]ssets/AssetStoreTools*
+[Ss]erver[Dd]ata/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Visual Studio / Rider generated project files
+.vs/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity generated debug/meta artifacts
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+sysinfo.txt
+*.stackdump
+crashlytics-build.properties
+
+# Build/package artifacts
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Keep shared VS Code workspace config, ignore local extras.
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+
+# ===== AI 协作工具栈（合并自 GameDesinger，2026-06-24）=====
+# Python 环境与缓存
+.venv/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets（千万不要提交）
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# tools/ 下平台/版本绑定的产物（按 setup.md 重建）
+tools/**/node_modules/
+tools/**/.env
+tools/**/*.exe
+tools/**/logs/
+tools/**/coverage/
+tools/**/test_output/
+tools/**/hunyuan3d_output/
+tools/**/__pycache__/
+tools/**/build/
+tools/**/dist/
+
+# codex 临时素材/工作目录（本地素材参考，不进版本控制）
+.codex/tmp/
+/tmp/
+
+# 美术需求构建依赖与生成过程文件（均可由脚本重建）
+/artifacts/美术资源需求/.build/node_modules/
+/artifacts/美术资源需求/**/*.result.json
+/artifacts/美术资源需求/*.inspect.ndjson
+/artifacts/美术资源需求/**/_*_alpha.png
+/artifacts/美术资源需求/**/_*_key.png
+
+# Codex/Agent skills workspace cache. Project skills live in .claude/skills/.
+.agents/
+
+# Codebase memory 索引（项目特定数据）
+.codebase-memory/
+
+# Unity 额外
+*.unityproj
+*.rar
+[Aa]ssets/Plugins/Editor/JetBrains*
+
+# Editor 临时
+*.swp
+*.swo
+*~
+desktop.ini
+ehthumbs.db
+
+# 11-skill-governance：tool 使用日志与审计中间产物，不进版本控制
+.claude/skills/_usage.log
+.claude/skills/_audit.json
+
+# 多编辑器 AI 使用事件（本地统计，不记录 prompt/代码，不进版本控制）
+.ai/usage/events.jsonl
+.ai/usage/events.jsonl.lock
+.ai/dispatch/
+
+# 字体资源体积过大，不进版本控制（本地各自维护）
+/Assets/Resources/Font/
+tools/LocalizationStringScanner/LocalizationCodeScanner
+tools/Jenkins/jenkins.war
+Assets/Game/Font/Common/SIMHEI SDF.asset
+.vscode/settings.json
+
+# HybridCLR build intermediates are generated per machine and may contain product paths.
+/HybridCLRData/
+
+# Transactional local backups for optional AppConfigs sample profiles.
+/.ai-friendly-frame/
+
+# Optional Sample packages are versioned under Samples~/ and installed on demand.
+/Assets/Sample/
+/Assets/Sample.meta
+/Assets/Game/Config/Sample/
+/Assets/Game/Config/Sample.meta
+/Assets/Game/Config.meta
+/Assets/Game/DataTable/Sample/
+/Assets/Game/DataTable/Sample.meta
+/Assets/Game/Language/Sample/
+/Assets/Game/Language/Sample.meta
+/Assets/Game/Scripts/DataTable/Sample/
+/Assets/Game/Scripts/DataTable/Sample.meta
+/GameData/Configs/Sample/
+/GameData/DataTables/Sample/
+/GameData/Languages/Sample/
+
+# `*~` above normally ignores editor backup files, but Samples~/ is the
+# versioned source root for optional packages and must remain deliverable.
+!/Samples~/
+!/Samples~/**

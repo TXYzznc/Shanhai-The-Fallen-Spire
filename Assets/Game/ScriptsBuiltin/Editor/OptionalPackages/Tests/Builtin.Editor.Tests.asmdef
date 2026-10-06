@@ -1,0 +1,22 @@
+{
+  "name": "Builtin.Editor.Tests",
+  "rootNamespace": "AiFriendlyFrame.Editor.Samples.Tests",
+  "references": [
+    "Builtin.Editor",
+    "Hotfix"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

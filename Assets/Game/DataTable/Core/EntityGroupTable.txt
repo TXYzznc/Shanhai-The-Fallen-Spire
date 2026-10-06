@@ -1,0 +1,7 @@
+#	EntityGroup						
+#	ID		Name	ReleaseInterval	Capacity	ExpireTime	Priority
+#	int		string	float	int	float	int
+#			Framework default entity groups				
+	1		Default	60	60	60	0
+	2		Effect	10	200	30	0
+	3		Persistent	60	0	60	0

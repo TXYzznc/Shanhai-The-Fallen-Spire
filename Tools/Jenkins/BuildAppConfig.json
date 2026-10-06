@@ -1,0 +1,10 @@
+{
+  "ResourceOutputDir": "AB",
+  "Platform": "StandaloneWindows64",
+  "FullBuild": false,
+  "DebugMode": true,
+  "DevelopmentBuild": false,
+  "BuildAppBundle": false,
+  "Version": "0.1.0",
+  "VersionCode": 1
+}

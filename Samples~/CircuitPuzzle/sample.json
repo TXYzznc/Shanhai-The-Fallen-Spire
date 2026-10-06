@@ -1,0 +1,66 @@
+{
+  "id": "circuit-puzzle",
+  "displayName": "电路拼图",
+  "version": "1.2.0",
+  "entryScene": "Assets/Sample/CircuitPuzzle/Scenes/CircuitPuzzle.unity",
+  "installRoot": "Assets/Sample/CircuitPuzzle",
+  "addEntrySceneToBuildSettings": true,
+  "payloads": [
+    {
+      "source": "payload/Assets/Sample/CircuitPuzzle",
+      "destination": "Assets/Sample/CircuitPuzzle"
+    },
+    {
+      "source": "payload/Assets/Game/DataTable/Sample/CircuitPuzzle",
+      "destination": "Assets/Game/DataTable/Sample/CircuitPuzzle"
+    },
+    {
+      "source": "payload/Assets/Game/Config/Sample/CircuitPuzzle",
+      "destination": "Assets/Game/Config/Sample/CircuitPuzzle"
+    },
+    {
+      "source": "payload/Assets/Game/Language/Sample",
+      "destination": "Assets/Game/Language/Sample"
+    },
+    {
+      "source": "payload/Assets/Game/Scripts/DataTable/Sample/CircuitPuzzle",
+      "destination": "Assets/Game/Scripts/DataTable/Sample/CircuitPuzzle"
+    },
+    {
+      "source": "payload/GameData/DataTables/Sample/CircuitPuzzle",
+      "destination": "GameData/DataTables/Sample/CircuitPuzzle"
+    },
+    {
+      "source": "payload/GameData/Configs/Sample/CircuitPuzzle",
+      "destination": "GameData/Configs/Sample/CircuitPuzzle"
+    },
+    {
+      "source": "payload/GameData/Languages/Sample",
+      "destination": "GameData/Languages/Sample"
+    }
+  ],
+  "appConfigsProfile": {
+    "loadFromBytes": false,
+    "dataTables": [
+      "Core/EntityGroupTable",
+      "Core/LanguagesTable",
+      "Core/SoundGroupTable",
+      "Core/UIGroupTable",
+      "Core/UITable",
+      "Sample/CircuitPuzzle/CircuitLevelTable"
+    ],
+    "configs": [
+      "Sample/CircuitPuzzle/CircuitPuzzleConfig"
+    ],
+    "languages": [
+      "English",
+      "Sample/CircuitPuzzle"
+    ],
+    "procedures": [
+      "PreloadProcedure",
+      "FrameworkReadyProcedure",
+      "ChangeSceneProcedure",
+      "AiFriendlyFrame.Sample.CircuitPuzzle.CircuitPuzzleSampleProcedure"
+    ]
+  }
+}

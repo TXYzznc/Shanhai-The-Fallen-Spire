@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "project": "<project-name>",
+  "dispatchMode": "producer-auto",
+  "windows": {
+    "producer": {
+      "title": "<project-name>｜制作人",
+      "threadId": "<local-thread-id>",
+      "hostId": "<host-id>",
+      "projectId": "<saved-project-id>",
+      "projectPath": "<project-path>"
+    },
+    "git-integration": {
+      "title": "<project-name>｜Git 集成",
+      "threadId": null,
+      "hostId": "<host-id>",
+      "projectId": "<saved-project-id>",
+      "projectPath": "<project-path>"
+    },
+    "<role-key>": {
+      "title": "<project-name>｜<role-title>",
+      "threadId": null,
+      "hostId": "<host-id>",
+      "projectId": null,
+      "projectPath": "<project-path>"
+    }
+  }
+}

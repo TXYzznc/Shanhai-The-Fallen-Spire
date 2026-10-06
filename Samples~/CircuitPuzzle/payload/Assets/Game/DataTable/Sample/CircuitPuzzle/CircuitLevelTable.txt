@@ -1,0 +1,7 @@
+﻿#	电路拼图关卡表				
+#	Id		Seed	BoardSize	TargetMoves
+#	int		int	int	int
+#	关卡编号		固定随机种子	棋盘边长	推荐步数
+	1		20260804	6	18
+	2		20260805	6	16
+	3		20260806	6	14

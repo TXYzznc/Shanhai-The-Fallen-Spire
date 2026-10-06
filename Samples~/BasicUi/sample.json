@@ -1,0 +1,13 @@
+{
+  "id": "basic-ui",
+  "displayName": "基础 UI",
+  "version": "1.0.0",
+  "entryScene": "Assets/Sample/BasicUi/Scenes/BasicUiSample.unity",
+  "installRoot": "Assets/Sample/BasicUi",
+  "payloads": [
+    {
+      "source": "payload/Assets/Sample/BasicUi",
+      "destination": "Assets/Sample/BasicUi"
+    }
+  ]
+}
