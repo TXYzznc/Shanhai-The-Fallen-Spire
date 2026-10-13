@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 1855670213
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: datatable
+      Dependencies: {}
+    Info_1:
+      Name: entity
+      Dependencies:
+        Dependency_0: sharedassets
+    Info_2:
+      Name: language
+      Dependencies: {}
+    Info_3:
+      Name: scene
+      Dependencies:
+        Dependency_0: sharedassets
+    Info_4:
+      Name: scriptableassets
+      Dependencies: {}
+    Info_5:
+      Name: sharedassets
+      Dependencies: {}
+    Info_6:
+      Name: ui
+      Dependencies:
+        Dependency_0: sharedassets

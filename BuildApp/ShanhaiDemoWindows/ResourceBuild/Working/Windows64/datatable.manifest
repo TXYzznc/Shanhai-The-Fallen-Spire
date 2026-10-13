@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 2556084862
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bc32c8440f9be819ab2826c63e0c8a4e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: bc32c8440f9be819ab2826c63e0c8a4e
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Game/DataTable/Core/UIGroupTable.txt
+- Assets/Game/DataTable/Core/UITable.txt
+- Assets/Game/DataTable/Core/SoundGroupTable.txt
+- Assets/Game/DataTable/Core/EntityGroupTable.txt
+- Assets/Game/DataTable/Core/LanguagesTable.txt
+Dependencies: []

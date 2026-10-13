@@ -1,0 +1,86 @@
+ManifestFileVersion: 0
+CRC: 1277267958
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e52698c50ed0ab1a325107dca67716dd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 511dde1ee42269a60c0c1374a23e81ba
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: e52698c50ed0ab1a325107dca67716dd
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 225238c5b7a0ba746a4660b7cfecb93d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 80237ba69dd94db49886d11c8b093f42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: be3a47db2b50381479a998b8306799a6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a8bae8e8667576c4da987dc832a4e25d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6b6e9161cea80474b912cac187167bdc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 708470cdd3ff12b48888774ebbce86f3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bc91f1db9bb1f5f4ba356954d147553e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3a873c87229ff514fb3db74a8f8bbf98, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Hotfix
+  ClassName: UIFormAnimationType
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.VertexGradient
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.AnimationTriggers
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Button/ButtonClickedEvent
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.ColorBlock
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Navigation
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.SpriteState
+Assets:
+- Assets/Game/Prefabs/UI/Item/DemoActionButton.prefab
+- Assets/Game/Prefabs/UI/Item/DemoLoadoutSlot.prefab
+- Assets/Game/Prefabs/UI/Item/DemoRewardSlot.prefab
+- Assets/Game/Prefabs/UI/DemoHud.prefab
+- Assets/Game/Prefabs/UI/Item/DemoRewardCard.prefab
+- Assets/Game/Prefabs/UI/DemoStartMenu.prefab
+Dependencies:
+- D:/Sourcetree/Shanhai-The-Fallen-Spire/BuildApp/ShanhaiDemoWindows/ResourceBuild/Working/Windows64/sharedassets

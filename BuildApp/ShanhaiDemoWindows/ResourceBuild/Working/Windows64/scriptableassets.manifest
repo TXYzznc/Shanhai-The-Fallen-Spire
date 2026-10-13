@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 990246243
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4b97533ed7ded4c2869cc7ad73456ddc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 53aff92f24611a6cc93dd3a1991980e8
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 4b97533ed7ded4c2869cc7ad73456ddc
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 78e0103d0a6cf7f499471ab2f4f74182, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Game/ScriptableAssets/Core/AppConfigs.asset
+Dependencies: []

@@ -1,0 +1,169 @@
+ManifestFileVersion: 0
+CRC: 3628791051
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 36750ef593819f058cb950981632335c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3fcdb111e66e99cb360fe218c1a6d487
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 36750ef593819f058cb950981632335c
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d7daf8320a3d04046b4bbd7c47307914, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 58aa63e99dabf9c4fb61a9ec4ac4d8ca, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3e847b2b3e22e9b4792ca7ea6e1714c6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3c6e05d8d843cd94bb9aa026ed5dc517, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 67038fd9feefc894aa31ae3869a45b72, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ac872c3ce4121bb46a74927b35780534, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 80237ba69dd94db49886d11c8b093f42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9c10fc849c04c47448aff7250425476c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9259de0854ba2624aa59aca15c6af063, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f98acd7d3bd2bf54dadf9644f60e5cb9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8ae4d40d7e878bc498492dc9c410d071, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 64800ac68a8aa904884d9d3779986b9b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 706e6317a59f61044b2805be79f6b284, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1e28a727443c86c40aeb42ff20e0a343, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7afc859893311c34a8d8c2c426ab192d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ed5533de69c4e5a4dabc7c23fce1fa98, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8437a364bc7934243b6d47ea5be98e03, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4a1ef15380caaed42b55022cadc93649, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3691d5584e0f0284cbb196a9bab6a660, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fc49d78dad061a2418e134fc48856bc9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c26ec20b78ec32048bfb6c0ff875d8cd, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 54066418ab853614483ea44b531049f0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 02988897571ac8b49a59c1a50037bd88, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bd789c6ebe7cc554086d8878f7242173, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b2ae545bf5aae3f459c9198919ab75b6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b6242b052eb207b40b22e8fe77a315ba, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f05eaceeebe870a4595e51f998ed518b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7eff66e40586ec14d8a301d416f17f1e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5415138d72a6a6847a1ee51ed0f59047, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 959bca2b68d03954897f38b1dbb00303, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d43297c46b85fb542a0d92634c2a3824, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2c6f9da87df69274a90897527e55c6fe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2b0b3afc8b4cff0428f512b0a68dd05e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 158dcfe53a1246c4d87bc4655ec98131, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2792fd55be4795347a81868b928d2184, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8dac97ce1ff6e31408fb706e2db42d14, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 120
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 196
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 241
+  Script: {instanceID: 0}
+- Class: 243
+  Script: {instanceID: 0}
+- Class: 245
+  Script: {instanceID: 0}
+- Class: 850595691
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Game/Scene/Launch.unity
+- Assets/Game/Scene/Demo/DemoMain.unity
+- Assets/Game/Scene/Demo/DemoMenu.unity
+Dependencies:
+- D:/Sourcetree/Shanhai-The-Fallen-Spire/BuildApp/ShanhaiDemoWindows/ResourceBuild/Working/Windows64/sharedassets

@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UnityGameFramework>
+  <BuildReport>
+    <Summary>
+      <ProductName>GameDesinger</ProductName>
+      <CompanyName>DefaultCompany</CompanyName>
+      <GameIdentifier>com.Unity-Technologies.com.unity.template.urp-blank</GameIdentifier>
+      <GameFrameworkVersion>2025.07.10</GameFrameworkVersion>
+      <UnityVersion>2022.3.62f3c1</UnityVersion>
+      <ApplicableGameVersion>0.1.0</ApplicableGameVersion>
+      <InternalResourceVersion>2</InternalResourceVersion>
+      <Platforms>Windows64</Platforms>
+      <AssetBundleCompression>LZ4</AssetBundleCompression>
+      <CompressionHelperTypeName>UnityGameFramework.Runtime.DefaultCompressionHelper</CompressionHelperTypeName>
+      <AdditionalCompressionSelected>True</AdditionalCompressionSelected>
+      <ForceRebuildAssetBundleSelected>False</ForceRebuildAssetBundleSelected>
+      <BuildEventHandlerTypeName>
+      </BuildEventHandlerTypeName>
+      <OutputDirectory>D:\Sourcetree\Shanhai-The-Fallen-Spire\BuildApp\ShanhaiDemoWindows\ResourceBuild</OutputDirectory>
+      <BuildAssetBundleOptions>ChunkBasedCompression</BuildAssetBundleOptions>
+    </Summary>
+    <Resources Count="7">
+      <Resource Name="DataTable" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="5">
+          <Asset Guid="52f749ae6d31fc94288dfe1f9f8896f6" Name="Assets/Game/DataTable/Core/UITable.txt" Length="179" HashCode="1994424669" />
+          <Asset Guid="60088dd3b0214654ba9150c7fdda1a8d" Name="Assets/Game/DataTable/Core/LanguagesTable.txt" Length="178" HashCode="490346632" />
+          <Asset Guid="98662c21c0b96bc48a6440a4fe486556" Name="Assets/Game/DataTable/Core/SoundGroupTable.txt" Length="216" HashCode="-1502029429" />
+          <Asset Guid="c4e839cf3d001e0499336fb7f53c0310" Name="Assets/Game/DataTable/Core/UIGroupTable.txt" Length="126" HashCode="186598274" />
+          <Asset Guid="e1a613ebd6f1d6f4a825d14981f3e88d" Name="Assets/Game/DataTable/Core/EntityGroupTable.txt" Length="221" HashCode="-669901202" />
+        </Assets>
+        <Codes>
+          <Windows64 Length="1969" HashCode="96596132" CompressedLength="1969" CompressedHashCode="96596132" />
+        </Codes>
+      </Resource>
+      <Resource Name="Entity" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="4">
+          <Asset Guid="533a1dd6c10457349901cef7da38bb0a" Name="Assets/Game/Prefabs/Entity/DemoCommonEnemy.prefab" Length="7100" HashCode="-1424653139">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/Game/DataTable/Demo/DemoGameplayConfig.asset" />
+              <DependencyAsset Name="Assets/Game/Prefabs/UI/Item/DemoEnemyStatus.prefab" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="7a5653f68a9c9634bba00eba0c6ef543" Name="Assets/Game/Prefabs/Entity/DemoEliteEnemy.prefab" Length="7107" HashCode="1987002244">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/Game/DataTable/Demo/DemoGameplayConfig.asset" />
+              <DependencyAsset Name="Assets/Game/Prefabs/UI/Item/DemoEnemyStatus.prefab" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="b854435fd736f13499051acd7c88db3a" Name="Assets/Game/Prefabs/Entity/DemoPlayer.prefab" Length="9505" HashCode="-1079083682">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/DataTable/Demo/DemoGameplayConfig.asset" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="ba3cb60800740a149afe47b2c3f463d4" Name="Assets/Game/Prefabs/Entity/DemoBoss.prefab" Length="7110" HashCode="-1750841781">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/Game/DataTable/Demo/DemoGameplayConfig.asset" />
+              <DependencyAsset Name="Assets/Game/Prefabs/UI/Item/DemoEnemyStatus.prefab" />
+            </DependencyAssets>
+          </Asset>
+        </Assets>
+        <Codes>
+          <Windows64 Length="31162" HashCode="-324611048" CompressedLength="31162" CompressedHashCode="-324611048" />
+        </Codes>
+      </Resource>
+      <Resource Name="Language" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="1">
+          <Asset Guid="07512f1f1bcd03c4f9560a59e32365fb" Name="Assets/Game/Language/English.json" Length="27" HashCode="-800078689" />
+        </Assets>
+        <Codes>
+          <Windows64 Length="1207" HashCode="1669758594" CompressedLength="1207" CompressedHashCode="1669758594" />
+        </Codes>
+      </Resource>
+      <Resource Name="Scene" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="3">
+          <Asset Guid="18868d941a71f02498051516873367ce" Name="Assets/Game/Scene/Launch.unity" Length="100281" HashCode="345701770">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="3df84ab5e0aa610448c321130dbca2b7" Name="Assets/Game/Scene/Demo/DemoMenu.unity" Length="4900" HashCode="-538356752">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/ScriptableAssets/Demo/DemoPresentationConfig.asset" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="76c9e50a6a28a474197fc6010eb70d98" Name="Assets/Game/Scene/Demo/DemoMain.unity" Length="43397" HashCode="1712089698">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/Game/DataTable/Demo/DemoGameplayConfig.asset" />
+              <DependencyAsset Name="Assets/Game/ScriptableAssets/Demo/DemoPresentationConfig.asset" />
+            </DependencyAssets>
+          </Asset>
+        </Assets>
+        <Codes>
+          <Windows64 Length="273088" HashCode="-1613760535" CompressedLength="273088" CompressedHashCode="-1613760535" />
+        </Codes>
+      </Resource>
+      <Resource Name="ScriptableAssets" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="1">
+          <Asset Guid="13b0b1255d7d6cf44a4d1987723460ef" Name="Assets/Game/ScriptableAssets/Core/AppConfigs.asset" Length="733" HashCode="971659525" />
+        </Assets>
+        <Codes>
+          <Windows64 Length="2112" HashCode="1430011586" CompressedLength="2112" CompressedHashCode="1430011586" />
+        </Codes>
+      </Resource>
+      <Resource Name="SharedAssets" Extension="dat" LoadType="2" Packed="False">
+        <Assets Count="13">
+          <Asset Guid="230b0c809e3e6a647af26c803aa90467" Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset" Length="7726" HashCode="1397059194">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold.ttf" />
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaSansJP SDF.asset" />
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaSansKR SDF.asset" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="3e7f633baa660a64fb1dbf7c28f04393" Name="Assets/Game/Materials/Demo/DemoFeedback.mat" Length="1116" HashCode="290362203" />
+          <Asset Guid="4038bdd6374dd724e9d434a91bca84d0" Name="Assets/Game/Prefabs/UI/Item/DemoEnemyStatus.prefab" Length="22689" HashCode="-1790109112">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="44b927bad04aa65498ad443edb455c46" Name="Assets/Game/Prefabs/UI/Item/DemoDamageText.prefab" Length="4403" HashCode="1710892737">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="53b9781b792f33841a6a088ec392fbd8" Name="Assets/Game/Font/Common/AlibabaSansJP.ttf" Length="4321220" HashCode="1319001542" />
+          <Asset Guid="588ff96c6882fb3448095d7a881bced3" Name="Assets/Game/Font/Common/AlibabaSansKR SDF.asset" Length="7549" HashCode="1582328877">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaSansKR.ttf" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="8a4e2875174034b4aabb43c9ca9028a1" Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold.ttf" Length="8371268" HashCode="1275264859" />
+          <Asset Guid="8aa29a0310777a64aa428102d3b24cb6" Name="Assets/Game/VFX/Demo/DemoAttackArc.prefab" Length="3951" HashCode="1151099411">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Materials/Demo/DemoFeedback.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="a29db755b6ae1104a94df297de29cfc8" Name="Assets/Game/Font/Common/AlibabaSansJP SDF.asset" Length="7559" HashCode="-1942584378">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaSansJP.ttf" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="a8b4db0723f15cd46a7f85fc78f522a8" Name="Assets/Game/ScriptableAssets/Demo/DemoPresentationConfig.asset" Length="1305" HashCode="-1863436564">
+            <DependencyAssets Count="3">
+              <DependencyAsset Name="Assets/Game/Prefabs/UI/Item/DemoDamageText.prefab" />
+              <DependencyAsset Name="Assets/Game/VFX/Demo/DemoAttackArc.prefab" />
+              <DependencyAsset Name="Assets/Game/VFX/Demo/DemoHitParticle.prefab" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="b3875828e0467bf4bbb3c8fccc775cd8" Name="Assets/Game/VFX/Demo/DemoHitParticle.prefab" Length="118401" HashCode="-1760747629">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Materials/Demo/DemoFeedback.mat" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="b8f790017d833da45a5aec7344ed4f97" Name="Assets/Game/Font/Common/AlibabaSansKR.ttf" Length="5235668" HashCode="1324326898" />
+          <Asset Guid="edcc29742c474d0fba520bbc68351624" Name="Assets/Game/DataTable/Demo/DemoGameplayConfig.asset" Length="7324" HashCode="-25605287" />
+        </Assets>
+        <Codes>
+          <Windows64 Length="12789587" HashCode="-189163973" CompressedLength="12789587" CompressedHashCode="-189163973" />
+        </Codes>
+      </Resource>
+      <Resource Name="UI" Extension="dat" LoadType="0" Packed="False">
+        <Assets Count="6">
+          <Asset Guid="0a0680d1e7df6ba4f90d2d47d55e6121" Name="Assets/Game/Prefabs/UI/Item/DemoLoadoutSlot.prefab" Length="3949" HashCode="905057249">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="14a450f08a5d4cd478677993a33285e1" Name="Assets/Game/Prefabs/UI/Item/DemoRewardSlot.prefab" Length="7573" HashCode="445666074">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="1ad952d59cc71d54dafd852eba91a0a8" Name="Assets/Game/Prefabs/UI/DemoStartMenu.prefab" Length="24710" HashCode="1023960866">
+            <DependencyAssets Count="2">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset" />
+              <DependencyAsset Name="Assets/Game/Prefabs/UI/Item/DemoActionButton.prefab" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="1c66644ec1684c2408acfdf93a7d7717" Name="Assets/Game/Prefabs/UI/DemoHud.prefab" Length="119822" HashCode="-1422939584">
+            <DependencyAssets Count="6">
+              <DependencyAsset Name="Assets/Game/DataTable/Demo/DemoGameplayConfig.asset" />
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset" />
+              <DependencyAsset Name="Assets/Game/Prefabs/UI/Item/DemoActionButton.prefab" />
+              <DependencyAsset Name="Assets/Game/Prefabs/UI/Item/DemoLoadoutSlot.prefab" />
+              <DependencyAsset Name="Assets/Game/Prefabs/UI/Item/DemoRewardCard.prefab" />
+              <DependencyAsset Name="Assets/Game/Prefabs/UI/Item/DemoRewardSlot.prefab" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="5b44594c998e5724286154dd9145b5f9" Name="Assets/Game/Prefabs/UI/Item/DemoActionButton.prefab" Length="7591" HashCode="1378376154">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset" />
+            </DependencyAssets>
+          </Asset>
+          <Asset Guid="79fc74695f462804599e07177cc093b1" Name="Assets/Game/Prefabs/UI/Item/DemoRewardCard.prefab" Length="11477" HashCode="506626881">
+            <DependencyAssets Count="1">
+              <DependencyAsset Name="Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset" />
+            </DependencyAssets>
+          </Asset>
+        </Assets>
+        <Codes>
+          <Windows64 Length="18148" HashCode="1538047939" CompressedLength="18148" CompressedHashCode="1538047939" />
+        </Codes>
+      </Resource>
+    </Resources>
+  </BuildReport>
+</UnityGameFramework>

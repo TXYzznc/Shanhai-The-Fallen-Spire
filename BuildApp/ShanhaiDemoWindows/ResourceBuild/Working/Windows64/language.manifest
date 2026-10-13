@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3986051474
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 23242994600bb09b1c38b603da447a67
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 23242994600bb09b1c38b603da447a67
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Game/Language/English.json
+Dependencies: []

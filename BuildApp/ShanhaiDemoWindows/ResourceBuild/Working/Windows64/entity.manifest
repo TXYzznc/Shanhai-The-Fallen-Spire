@@ -1,0 +1,70 @@
+ManifestFileVersion: 0
+CRC: 1042137702
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6464e253acf12fcf44aa7b45b20790eb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 35e050c8b605553338f57f0bb0f83baa
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 6464e253acf12fcf44aa7b45b20790eb
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 58
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9a8cfbbb572326246bd350302af04095, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d380c90197d9d6a40a035bffe60dec44, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f0ad794255580624396cc6a30fa5c4c7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7712913f41bb7a14483a6aa550ded0d1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 80237ba69dd94db49886d11c8b093f42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c1afcf15401577a48bdb058c97847b3a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cfdca0615a356364abb5ce48f3434d16, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c9687092b064d234792b125b4d922c15, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0b4d004077d8c3b408f80c362f9d6664, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a7caf0271a48f3d4193a71369c8636cb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe439ceb3dd6e664f8751eb882473d1c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 903f7ada89d6f77409a3fee8d667b14a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bc7094c4de18e0f4693c7f16ac44198c, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Game/Prefabs/Entity/DemoCommonEnemy.prefab
+- Assets/Game/Prefabs/Entity/DemoEliteEnemy.prefab
+- Assets/Game/Prefabs/Entity/DemoPlayer.prefab
+- Assets/Game/Prefabs/Entity/DemoBoss.prefab
+Dependencies:
+- D:/Sourcetree/Shanhai-The-Fallen-Spire/BuildApp/ShanhaiDemoWindows/ResourceBuild/Working/Windows64/sharedassets

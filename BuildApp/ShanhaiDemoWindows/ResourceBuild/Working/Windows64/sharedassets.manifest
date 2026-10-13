@@ -1,0 +1,108 @@
+ManifestFileVersion: 0
+CRC: 3298111093
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0f422440021740050c6a995913da3509
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fd86a1cd51ddd58cf4ab2c0ef7e1d1c1
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 0f422440021740050c6a995913da3509
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 80237ba69dd94db49886d11c8b093f42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d43297c46b85fb542a0d92634c2a3824, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 158dcfe53a1246c4d87bc4655ec98131, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8dac97ce1ff6e31408fb706e2db42d14, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 903f7ada89d6f77409a3fee8d667b14a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 120
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Shanhai.Demo
+  ClassName: Shanhai.Demo.Configuration.DemoBeastMarkConfig
+- AssemblyName: Shanhai.Demo
+  ClassName: Shanhai.Demo.Configuration.DemoBuffConfig
+- AssemblyName: Shanhai.Demo
+  ClassName: Shanhai.Demo.Configuration.DemoDropConfig
+- AssemblyName: Shanhai.Demo
+  ClassName: Shanhai.Demo.Configuration.DemoEnemyConfig
+- AssemblyName: Shanhai.Demo
+  ClassName: Shanhai.Demo.Configuration.DemoPlayerConfig
+- AssemblyName: Shanhai.Demo
+  ClassName: Shanhai.Demo.Configuration.DemoSpawnConfig
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.FaceInfo_Legacy
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.FontAssetCreationSettings
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.KerningTable
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_Character
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_FontFeatureTable
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_FontWeightPair
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.VertexGradient
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.FaceInfo
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.Glyph
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.GlyphMetrics
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.GlyphRect
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+Assets:
+- Assets/Game/Prefabs/UI/Item/DemoDamageText.prefab
+- Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold SDF.asset
+- Assets/Game/Font/Common/AlibabaSansJP.ttf
+- Assets/Game/Font/Common/AlibabaSansKR.ttf
+- Assets/Game/ScriptableAssets/Demo/DemoPresentationConfig.asset
+- Assets/Game/VFX/Demo/DemoHitParticle.prefab
+- Assets/Game/Prefabs/UI/Item/DemoEnemyStatus.prefab
+- Assets/Game/Materials/Demo/DemoFeedback.mat
+- Assets/Game/Font/Common/AlibabaSansKR SDF.asset
+- Assets/Game/Font/Common/AlibabaSansJP SDF.asset
+- Assets/Game/DataTable/Demo/DemoGameplayConfig.asset
+- Assets/Game/Font/Common/AlibabaPuHuiTi-3-85-Bold.ttf
+- Assets/Game/VFX/Demo/DemoAttackArc.prefab
+Dependencies: []
