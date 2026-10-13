@@ -120,8 +120,6 @@ ehthumbs.db
 .claude/skills/_audit.json
 
 # 多编辑器 AI 使用事件（本地统计，不记录 prompt/代码，不进版本控制）
-.ai/usage/events.jsonl
-.ai/usage/events.jsonl.lock
 .ai/dispatch/
 
 # 字体资源体积过大，不进版本控制（本地各自维护）
