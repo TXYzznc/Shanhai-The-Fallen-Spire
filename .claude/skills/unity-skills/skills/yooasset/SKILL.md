@@ -26,7 +26,7 @@ Editor-side automation for the YooAsset hot-update framework — build pipeline 
 - Auto-forbidden in this module:
   - `MayEnterPlayMode = true` → `yooasset_runtime_validate_package`, `yooasset_runtime_cleanup`
   - `SkillOperation.Delete` → `yooasset_remove_collector_package`, `yooasset_remove_collector_group`, `yooasset_remove_collector`
-  
+
   Reachable only under Bypass mode or via a user-managed Allowlist entry; the grant flow returns `MODE_FORBIDDEN`. Note `yooasset_build_bundles` runs heavy disk I/O but has no Reload/PlayMode flag, so it stays grantable.
 - When `com.tuyoogame.yooasset` is missing, every skill except `yooasset_check_installed` returns a `NoYooAsset()` error with install instructions.
 

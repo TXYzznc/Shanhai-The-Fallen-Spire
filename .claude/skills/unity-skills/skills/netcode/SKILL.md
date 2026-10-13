@@ -28,7 +28,7 @@ Automation for Netcode for GameObjects (NGO) multiplayer setup and operations. E
   - `SkillOperation.Delete` → `netcode_remove_manager`, `netcode_remove_network_object`, `netcode_remove_from_prefabs_list`
   - `MayTriggerReload = true` → `netcode_add_network_behaviour_script` (writes a new `.cs`, forces script compile + Domain Reload)
   - `MayEnterPlayMode = true` → `netcode_start_host`, `netcode_start_server`, `netcode_start_client`, `netcode_shutdown`
-  
+
   These are reachable only under Bypass mode or via a user-managed Allowlist entry; the grant flow returns `MODE_FORBIDDEN`. Runtime control + Behaviour-script generation are the practical reason this module is gated.
 - When `com.unity.netcode.gameobjects` is missing, every skill returns a `NoNetcode()` error with install instructions.
 
