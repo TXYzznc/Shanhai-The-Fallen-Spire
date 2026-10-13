@@ -3424,6 +3424,18 @@
 
 ---
 
+## Unity - Manual: Upgrade to URP 17.1 (Unity 6.1)
+
+**URL:** https://docs.unity3d.com/Manual/urp/upgrade-guide-unity-6-1.html
+
+---
+
+## Unity - Manual: Upgrade to URP 17 (Unity 6.0)
+
+**URL:** https://docs.unity3d.com/Manual/urp/upgrade-guide-unity-6.html
+
+---
+
 ## Unity - Manual: Upgrade to version 10.0.x of the Universal Render Pipeline
 
 **URL:** https://docs.unity3d.com/Manual/urp/upgrade-guide-10-0-x.html
@@ -3637,6 +3649,12 @@
 ## Unity - Manual: Volume component reference for URP
 
 **URL:** https://docs.unity3d.com/Manual/urp/volume-component-reference.html
+
+---
+
+## Unity - Manual: What's new in URP 17 (Unity 6.0)
+
+**URL:** https://docs.unity3d.com/Manual/urp/whats-new/urp-whats-new.html
 
 ---
 

@@ -1,11 +1,36 @@
 ---
 name: unity-terrain
-description: "Create and modify Unity Terrain. Set heights, paint textures, query elevation."
+description: Operate on Unity Terrain
 ---
+
+> **Before calling any skill in this module:** if you are about to call a skill with parameters guessed from its name or description, STOP — read this file (or fetch its schema via `GET /skills/recommend?includeSchema=true`) first. If you already have the parameter definitions from recommend/schema, you may proceed straight to dryRun.
+
+## Triggers
+- Creating or editing terrain
+- Sculpting or smoothing heightmap
+- Painting terrain texture layers
+- 创建或编辑地形、雕刻或平滑高度图、绘制地形纹理层
 
 # Unity Terrain Skills
 
-> **Note**: Terrain operations require an existing Terrain in the scene, or use `terrain_create` to generate one.
+## Guardrails
+
+**Operating Mode** (v1.9 three-tier):
+- **Approval** (default): query skills (`terrain_get_info`, `terrain_get_height`) run directly. Create/modify skills (`terrain_create`, `terrain_set_height`, `terrain_set_heights_batch`, `terrain_add_hill`, `terrain_generate_perlin`, `terrain_smooth`, `terrain_flatten`, `terrain_paint_texture`) are FullAuto — on `MODE_RESTRICTED`, run the grant protocol; `/permission/grant` executes the skill server-side and returns the result.
+- **Auto** / **Bypass**: SemiAuto and FullAuto run directly.
+- This module contains **no** Delete / PlayMode / Reload / `RiskLevel="high"` skills — nothing auto-classifies as forbidden. To remove a terrain delete the asset via `asset_delete` (subject to its own forbidden rules).
+
+> **Note**: All sculpt/paint operations require an existing Terrain in the scene, or use `terrain_create` to generate one.
+
+**DO NOT** (common hallucinations):
+- `terrain_set_texture` does not exist → use `terrain_paint_texture` with layer index and brush parameters
+- `terrain_add_tree` / `terrain_add_grass` do not exist → these require Unity Terrain tools or custom scripts
+- `terrain_set_size` does not exist → terrain dimensions are set at creation via `terrain_create`
+- `terrain_import_heightmap` / `terrain_set_heights` do not exist → use `terrain_set_heights_batch` with a 2D heights array (`[z][x]` values 0-1)
+
+**Routing**:
+- For terrain material → use `material` module on terrain's material
+- For objects on terrain → use `gameobject` module to create/place objects
 
 ## Skills Overview
 
@@ -50,7 +75,7 @@ Get terrain information.
 
 *If neither provided, uses first terrain in scene
 
-**Returns**: `{success, name, size, heightmapResolution, alphamapResolution, terrainLayerCount, layers}`
+**Returns**: `{success, name, instanceId, position, size, heightmapResolution, alphamapResolution, detailResolution, terrainLayerCount, layers}`
 
 ### terrain_get_height
 Get terrain height at world position.
@@ -72,6 +97,7 @@ Set height at normalized coordinates.
 | `normalizedZ` | float | Yes | Z position (0-1) |
 | `height` | float | Yes | Height value (0-1) |
 | `name` | string | No | Terrain name |
+| `instanceId` | int | No | Terrain instance ID |
 
 **Returns**: `{success, normalizedX, normalizedZ, height, pixelX, pixelZ}`
 
@@ -84,6 +110,7 @@ Set height at normalized coordinates.
 | `startZ` | int | Yes | Start Z pixel index |
 | `heights` | float[][] | Yes | 2D array [z][x] with values 0-1 |
 | `name` | string | No | Terrain name |
+| `instanceId` | int | No | Terrain instance ID |
 
 **Returns**: `{success, startX, startZ, modifiedWidth, modifiedLength, totalPointsModified}`
 
@@ -104,6 +131,7 @@ call_skill("terrain_set_heights_batch", startX=50, startZ=50, heights=heights)
 | `height` | float | No | 0.5 | Hill height (0-1) |
 | `smoothness` | float | No | 1.0 | Smoothness factor (higher = smoother) |
 | `name` | string | No | null | Terrain name |
+| `instanceId` | int | No | 0 | Terrain instance ID |
 
 **Returns**: `{success, centerX, centerZ, radius, height, affectedArea}`
 
@@ -161,6 +189,7 @@ call_skill("terrain_generate_perlin",
 | `radius` | float | No | 0.1 | Smoothing radius (0-1) |
 | `iterations` | int | No | 1 | Number of smoothing passes |
 | `name` | string | No | null | Terrain name |
+| `instanceId` | int | No | 0 | Terrain instance ID |
 
 **Returns**: `{success, centerX, centerZ, radius, iterations, affectedArea}`
 
@@ -182,6 +211,7 @@ call_skill("terrain_smooth",
 | `radius` | float | No | 0.1 | Flatten radius (0-1) |
 | `strength` | float | No | 1.0 | Flatten strength (0-1) |
 | `name` | string | No | null | Terrain name |
+| `instanceId` | int | No | 0 | Terrain instance ID |
 
 **Returns**: `{success, centerX, centerZ, targetHeight, radius, strength}`
 
@@ -199,12 +229,13 @@ Paint terrain texture layer. Requires terrain layers already configured.
 |-----------|------|----------|---------|-------------|
 | `normalizedX` | float | Yes | - | X position (0-1) |
 | `normalizedZ` | float | Yes | - | Z position (0-1) |
-| `layerIndex` | int | Yes | - | Layer index to paint |
+| `layerIndex` | int | Yes | - | Terrain layer index (0-based; use `terrain_get_info` to query available layers). Out of range, including negative, is rejected before anything is painted |
 | `strength` | float | No | 1.0 | Paint strength |
 | `brushSize` | int | No | 10 | Brush size in pixels |
 | `name` | string | No | null | Terrain name |
+| `instanceId` | int | No | 0 | Terrain instance ID |
 
-**Returns**: `{success, layerIndex, layerName, centerX, centerZ}`
+**Returns**: `{success, layerIndex, layerName, centerX, centerZ, brushSize, strength}`
 
 ---
 
@@ -300,3 +331,8 @@ unity_skills.call_skill("workflow_session_end")
 sessions = unity_skills.call_skill("workflow_session_list")
 unity_skills.call_skill("workflow_session_undo", sessionId=sessions['sessions'][0]['sessionId'])
 ```
+
+---
+## Exact Signatures
+
+Exact names, parameters, defaults, and returns are defined by `GET /skills/schema` or `unity_skills.get_skill_schema()`, not by this file.

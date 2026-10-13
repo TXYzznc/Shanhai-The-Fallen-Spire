@@ -1,131 +1,56 @@
 ---
 name: unity-script
-description: "Create and manage C# scripts. Use script_create_batch for 2+ scripts."
+description: Create, read and analyze C# scripts
 ---
+
+## Triggers
+- Authoring or editing C# code
+- Searching across scripts
+- Refactoring file layout
+- Checking compile errors
+- 编写或编辑 C# 代码、跨脚本搜索、重构文件布局、检查编译错误
 
 # Unity Script Skills
 
-> **BATCH-FIRST**: Use `script_create_batch` when creating 2+ scripts.
+Create, edit, move and inspect C# scripts and get their compile result. Parameters come from the schema (recommend `includeSchema=true` or `/skills/schema?names=`), which notes the non-obvious ones — never from a skill's name. Execution and dryRun rules: root [SKILL.md](../../SKILL.md).
+
+## Operating Mode
+Read-only `SemiAuto` skills run directly in every mode: `script_read`, `script_list`, `script_find_in_file`, `script_get_info`, `script_get_compile_feedback`. All 7 writers — `script_create`, `script_create_batch`, `script_replace`, `script_append`, `script_rename`, `script_move`, `script_delete` — are `MayTriggerReload` + `RiskLevel:"high"` (a written `.cs` reloads the domain; `script_delete` is also `Delete`), so they are NeverInSemi: Approval **and** Auto return `MODE_FORBIDDEN`, and only Bypass or an Allowlist hit runs them. Never request a grant for them → [operating mode](../../references/protocol-operating-mode.md).
+
+## Compile and reload
+- Every write returns at once: `{success, status: "accepted", path, jobId, waitUrl, serverAvailability}`; compilation follows, and the server is briefly unreachable during the domain reload.
+- One call gets the compile result: GET the returned `waitUrl` (`/jobs/<jobId>?wait=90`), e.g. `curl -s --retry 20 --retry-connrefused --retry-all-errors --retry-delay 2 "http://localhost:<port>/jobs/<jobId>?wait=90"`. It answers once compilation settles: job `status` `completed`, or `failed` on compile errors, with diagnostics in `resultData.compilation` (`isCompiling`, `hasErrors`, `errorCount`, `errors: [{type, message, file, line}]`). During the reload it may refuse or return `503`: repeat the same URL; `waitTimedOut: true` means GET it again.
+- `script_get_compile_feedback(scriptPath)` returns the same diagnostics on demand. Fix errors first: `component_add` finds a new MonoBehaviour only after a clean compile.
+- `checkCompile: false` skips the diagnostics; `diagnosticLimit` caps them (default 20).
+
+## Shared rules
+- `scriptName` is the file and class name, without `.cs` or path separators. Paths (`folder`, `scriptPath`, `newFolder`) are project-relative, starting with `Assets/` or `Packages/`; a missing folder is created. An existing file is never overwritten (`Script already exists`).
+- `script_create` writes `content` verbatim when given (then `template` / `namespaceName` are ignored, with a warning); otherwise it fills a template — `MonoBehaviour` (default), `ScriptableObject`, `Editor`, `EditorWindow` (the last two default to `Assets/Editor`) — wrapped in `namespaceName` if set. Any other bare name is rejected (`validValues` lists these four); text containing code stays a literal template with `{CLASS}`/`{NAMESPACE}` filled, but use `content` for custom classes. A MonoBehaviour or ScriptableObject binds to its file only when the class name equals the file name; content declaring no such type gets a warning.
+- 2+ new scripts → `script_create_batch`: one domain reload instead of N.
 
 ## Skills Overview
+- Write: `script_create`, `script_create_batch`, `script_replace` (find/replace, plain or regex), `script_append` (insert lines), `script_rename` (file only; the class inside is not renamed), `script_move` (creates the destination folder), `script_delete`.
+- Read: `script_read`, `script_list`, `script_find_in_file` (plain or regex, per line), `script_get_info` (class, base class, public members), `script_get_compile_feedback`.
 
-| Single Object | Batch Version | Use Batch When |
-|---------------|---------------|----------------|
-| `script_create` | `script_create_batch` | Creating 2+ scripts |
+Per-skill tables and return shapes: `reference/<skill_name>.md` — rarely needed, the schema notes the parameters.
 
-**No batch needed**:
-- `script_read` - Read script content
-- `script_delete` - Delete script
-- `script_find_in_file` - Search in scripts
-- `script_append` - Append content to script
+**DO NOT** (common hallucinations):
+- `script_edit` / `script_update` do not exist → use `script_replace` for find-and-replace
+- `script_write` does not exist → use `script_create` (new file) or `script_replace` (modify existing)
 
----
+**Elsewhere**: API analysis of a compiled script → `script_analyze` (perception).
 
-## Skills
+## Exact Signatures
 
-### script_create
-Create a C# script from template.
+Names, parameters, defaults and required flags come from `GET /skills/schema?category=Script` (or `?names=a,b`), not this file.
 
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `scriptName` | string | Yes | - | Script class name |
-| `folder` | string | No | "Assets/Scripts" | Save folder |
-| `template` | string | No | "MonoBehaviour" | Template type |
-| `namespace` | string | No | null | Optional namespace |
+## Common Errors
 
-**Templates**: MonoBehaviour, ScriptableObject, Editor, EditorWindow
+| Error | Trigger → fix |
+|---|---|
+| `MISSING_PARAM` | e.g. `scriptName`, `pattern`, `find`, `newName` → supply it; the error (or a dryRun) lists all parameters. |
+| `SEMANTIC_INVALID` | Path separators in `scriptName` / `newName`, a path outside `Assets/` / `Packages/`, or the script already exists → fix the name or path, or rename/move the existing file. |
+| `TARGET_NOT_FOUND` | Script, MonoScript or folder missing → find the right `scriptPath` with `script_list` / `asset_find`. |
+| `SKILL_ERROR` | A filesystem or AssetDatabase move/rename/delete failed → read the message, resolve it, retry. |
 
-**Returns**: `{success, path, className, template}`
-
-### script_create_batch
-Create multiple scripts in one call.
-
-```python
-unity_skills.call_skill("script_create_batch", items=[
-    {"scriptName": "PlayerController", "folder": "Assets/Scripts/Player", "template": "MonoBehaviour"},
-    {"scriptName": "EnemyAI", "folder": "Assets/Scripts/Enemy", "template": "MonoBehaviour"},
-    {"scriptName": "GameSettings", "folder": "Assets/Scripts/Data", "template": "ScriptableObject"}
-])
-```
-
-### script_read
-Read script content.
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `scriptPath` | string | Yes | Script asset path |
-
-**Returns**: `{success, path, content}`
-
-### script_delete
-Delete a script.
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `scriptPath` | string | Yes | Script to delete |
-
-### script_find_in_file
-Search for patterns in scripts.
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `pattern` | string | Yes | - | Search pattern |
-| `folder` | string | No | "Assets" | Search folder |
-| `isRegex` | bool | No | false | Use regex |
-| `limit` | int | No | 100 | Max results |
-
-**Returns**: `{success, pattern, totalMatches, matches: [{file, line, content}]}`
-
-### script_append
-Append content to a script.
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `scriptPath` | string | Yes | - | Script path |
-| `content` | string | Yes | - | Content to append |
-| `atLine` | int | No | end | Line number to insert at |
-
----
-
-## Example: Efficient Script Setup
-
-```python
-import unity_skills
-
-# BAD: 3 API calls + 3 Domain Reloads
-unity_skills.call_skill("script_create", scriptName="PlayerController", folder="Assets/Scripts/Player")
-# Wait for Domain Reload...
-unity_skills.call_skill("script_create", scriptName="EnemyAI", folder="Assets/Scripts/Enemy")
-# Wait for Domain Reload...
-unity_skills.call_skill("script_create", scriptName="GameManager", folder="Assets/Scripts/Core")
-# Wait for Domain Reload...
-
-# GOOD: 1 API call + 1 Domain Reload
-unity_skills.call_skill("script_create_batch", items=[
-    {"scriptName": "PlayerController", "folder": "Assets/Scripts/Player"},
-    {"scriptName": "EnemyAI", "folder": "Assets/Scripts/Enemy"},
-    {"scriptName": "GameManager", "folder": "Assets/Scripts/Core"}
-])
-# Wait for Domain Reload once...
-```
-
-## Important: Domain Reload
-
-After creating scripts, Unity triggers a Domain Reload (recompilation). Wait 3-5 seconds before making additional calls.
-
-```python
-import time
-
-unity_skills.call_skill("script_create", scriptName="MyScript")
-time.sleep(5)  # Wait for Unity to recompile
-unity_skills.call_skill("component_add", name="Player", componentType="MyScript")
-```
-
-## Best Practices
-
-1. Use meaningful script names matching class name
-2. Organize scripts in logical folders
-3. Use templates for correct base class
-4. Wait for compilation after creating scripts
-5. Use regex search for complex patterns
-6. **Use batch creation to minimize Domain Reloads**
+Transport codes (`COMPILING`, `RATE_LIMIT`, ...) → [error codes](../../references/protocol-error-codes.md).

@@ -1,11 +1,35 @@
 ---
 name: unity-animator
-description: "Create and manage Animator Controllers and parameters."
+description: Edit Unity Animator Controllers and drive runtime parameters
 ---
+
+> **Before calling any skill in this module:** if you are about to call a skill with parameters guessed from its name or description, STOP — read this file (or fetch its schema via `GET /skills/recommend?includeSchema=true`) first. If you already have the parameter definitions from recommend/schema, you may proceed straight to dryRun.
+
+## Triggers
+- Setting up or wiring an Animator
+- Adjusting animation state machines
+- Driving animation parameters at runtime
+- 搭建或连接 Animator、调整动画状态机、运行时驱动动画参数
 
 # Unity Animator Skills
 
-Control Unity's animation system - create controllers, manage parameters, and control playback.
+Control Unity's Mecanim system — create Animator Controllers, add layers' states / transitions / parameters, assign controllers to GameObjects, set parameters at runtime, and play states.
+
+## Operating Mode
+
+- **Approval**：查询类 skill（`animator_get_parameters` / `animator_get_info` / `animator_list_states`，源码标 `SkillMode.SemiAuto`）直接执行；其余变更类（create_controller / add_parameter / set_parameter / play / assign_controller / add_state / add_transition，标 `SkillMode.FullAuto`）需用户 grant，grant 后服务端一步执行返结果。
+- **Auto / Bypass**：所有 skill 直接执行；Auto 走 AI 自我评估，Bypass 全放行。
+- 本模块**不含** Delete / PlayMode / Reload / 高危 skill，无 Bypass-only 拦截项。
+- `animator_set_parameter` / `animator_play` 作用于场景中已挂 Animator 的 GameObject；如果当前不在 Play mode，状态机只在 Editor 预览模式推进，效果与 runtime 不完全等价。
+
+**DO NOT** (common hallucinations):
+- `animator_create_clip` / `animator_add_clip` do not exist → AnimationClips are created via Unity Editor or asset import
+- `animator_set_speed` does not exist → use `component_set_property` on Animator component with propertyName="speed"
+
+**Routing**:
+- For Timeline animation → use `timeline` module
+- For component properties on Animator → use `component` module
+- For animation import settings → use `importer` module
 
 ## Skills Overview
 
@@ -19,6 +43,8 @@ Control Unity's animation system - create controllers, manage parameters, and co
 | `animator_get_info` | Get Animator component info |
 | `animator_assign_controller` | Assign controller to GameObject |
 | `animator_list_states` | List states in controller |
+| `animator_add_state` | Add a state to a controller layer |
+| `animator_add_transition` | Add a transition between two states |
 
 ---
 
@@ -41,7 +67,7 @@ Create a new Animator Controller.
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `name` | string | Yes | - | Controller name |
-| `folder` | string | No | "Assets" | Save folder |
+| `folder` | string | No | "Assets/Animations" | Save folder |
 
 **Returns**: `{success, name, path}`
 
@@ -52,8 +78,10 @@ Add a parameter to a controller.
 |-----------|------|----------|---------|-------------|
 | `controllerPath` | string | Yes | - | Controller asset path |
 | `paramName` | string | Yes | - | Parameter name |
-| `paramType` | string | Yes | - | float/int/bool/trigger |
-| `defaultValue` | any | No | 0/false | Initial value |
+| `paramType` | string | No | float | float/int/bool/trigger |
+| `defaultFloat` | float | No | 0 | Initial float value |
+| `defaultInt` | int | No | 0 | Initial int value |
+| `defaultBool` | bool | No | false | Initial bool value |
 
 ### animator_get_parameters
 Get all parameters from a controller.
@@ -62,48 +90,60 @@ Get all parameters from a controller.
 |-----------|------|----------|-------------|
 | `controllerPath` | string | Yes | Controller asset path |
 
-**Returns**: `{success, parameters: [{name, type, defaultFloat/defaultBool/...}]}`
+**Returns**: `{controller, parameters: [{name, type, defaultFloat, defaultInt, defaultBool}]}`
 
 ### animator_set_parameter
-Set a parameter value at runtime.
+Set a parameter value at runtime (supports `name`/`instanceId`/`path`).
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `name` | string | Yes | GameObject name |
+| `name` | string | No* | GameObject name |
+| `instanceId` | int | No* | GameObject instance ID |
+| `path` | string | No* | GameObject hierarchy path |
 | `paramName` | string | Yes | Parameter name |
-| `paramType` | string | Yes | float/int/bool/trigger |
+| `paramType` | string | No | float/int/bool/trigger (default: float) |
 | `floatValue` | float | No* | Float value |
 | `intValue` | int | No* | Integer value |
 | `boolValue` | bool | No* | Boolean value |
 
-*Use the appropriate value for paramType (trigger doesn't need a value)
+*At least one identifier required. Use the appropriate value for paramType (trigger doesn't need a value).
 
 ### animator_play
-Play a specific animation state.
+Play a specific animation state (supports `name`/`instanceId`/`path`).
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `name` | string | Yes | - | GameObject name |
+| `name` | string | No* | - | GameObject name |
+| `instanceId` | int | No* | 0 | GameObject instance ID |
+| `path` | string | No* | null | GameObject hierarchy path |
 | `stateName` | string | Yes | - | Animation state name |
 | `layer` | int | No | 0 | Animator layer |
 | `normalizedTime` | float | No | 0 | Start time (0-1) |
 
+*At least one identifier required.
+
 ### animator_get_info
-Get Animator component information.
+Get Animator component information (supports `name`/`instanceId`/`path`).
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `name` | string | Yes | GameObject name |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `name` | string | No | null | GameObject name |
+| `instanceId` | int | No | 0 | GameObject instance ID |
+| `path` | string | No | null | GameObject hierarchy path |
 
-**Returns**: `{success, hasController, controllerName, parameters, currentState}`
+**Returns**: `{gameObject, instanceId, hasController, controllerPath, speed, applyRootMotion, updateMode, cullingMode, layerCount, parameterCount}`
 
 ### animator_assign_controller
-Assign a controller to a GameObject.
+Assign a controller to a GameObject (supports `name`/`instanceId`/`path`).
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `name` | string | Yes | GameObject name |
+| `name` | string | No* | GameObject name |
+| `instanceId` | int | No* | GameObject instance ID |
+| `path` | string | No* | GameObject hierarchy path |
 | `controllerPath` | string | Yes | Controller asset path |
+
+*At least one identifier required.
 
 ### animator_list_states
 List all states in a controller layer.
@@ -113,7 +153,33 @@ List all states in a controller layer.
 | `controllerPath` | string | Yes | - | Controller asset path |
 | `layer` | int | No | 0 | Layer index |
 
-**Returns**: `{success, states: [{name, tag, speed}]}`
+**Returns**: `{controller, layer, layerName, stateCount, states: [{name, tag, speed, hasMotion}]}`
+
+### animator_add_state
+Add a state to an Animator Controller layer.
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `controllerPath` | string | Yes | - | Controller asset path |
+| `stateName` | string | Yes | - | Name for the new state |
+| `clipPath` | string | No | null | Animation clip asset path to assign; a path that is not an AnimationClip rejects the call before the state is added |
+| `layer` | int | No | 0 | Layer index |
+
+**Returns**: `{success, controller, stateName, layer}`
+
+### animator_add_transition
+Add a transition between two states in an Animator Controller.
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `controllerPath` | string | Yes | - | Controller asset path |
+| `fromState` | string | Yes | - | Source state name |
+| `toState` | string | Yes | - | Destination state name |
+| `layer` | int | No | 0 | Layer index |
+| `hasExitTime` | bool | No | true | Whether transition waits for exit time |
+| `duration` | float | No | 0.25 | Transition duration in seconds |
+
+**Returns**: `{success, from, to, layer, hasExitTime, duration}`
 
 ---
 
@@ -131,11 +197,11 @@ unity_skills.call_skill("animator_create_controller",
 # 2. Add parameters
 unity_skills.call_skill("animator_add_parameter",
     controllerPath="Assets/Animations/PlayerController.controller",
-    paramName="Speed", paramType="float", defaultValue=0
+    paramName="Speed", paramType="float", defaultFloat=0
 )
 unity_skills.call_skill("animator_add_parameter",
     controllerPath="Assets/Animations/PlayerController.controller",
-    paramName="IsGrounded", paramType="bool", defaultValue=True
+    paramName="IsGrounded", paramType="bool", defaultBool=True
 )
 unity_skills.call_skill("animator_add_parameter",
     controllerPath="Assets/Animations/PlayerController.controller",
@@ -170,3 +236,8 @@ unity_skills.call_skill("animator_play", name="Player", stateName="Idle")
 4. Set parameters before playing states
 5. Use layers for independent animations (body + face)
 6. States must exist in controller before playing
+
+---
+## Exact Signatures
+
+Exact names, parameters, defaults, and returns are defined by `GET /skills/schema` or `unity_skills.get_skill_schema()`, not by this file.

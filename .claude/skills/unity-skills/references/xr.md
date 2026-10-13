@@ -1144,6 +1144,12 @@
 
 ---
 
+## Unity - Manual: Migrate custom controls from an earlier version to Unity 6
+
+**URL:** https://docs.unity3d.com/Manual/ui-systems/migrate-custom-control.html
+
+---
+
 ## Unity - Manual: Mobile Keyboard
 
 **URL:** https://docs.unity3d.com/Manual/MobileKeyboard.html

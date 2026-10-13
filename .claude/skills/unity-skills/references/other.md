@@ -862,6 +862,12 @@
 
 ---
 
+## Unity - Manual: Asynchronous programming with the Awaitable class
+
+**URL:** https://docs.unity3d.com/Manual/async-await-support.html
+
+---
+
 ## Unity - Manual: Asynchronous tests
 
 **URL:** https://docs.unity3d.com/Manual/test-framework/reference-async-tests.html
@@ -919,6 +925,18 @@
 ## Unity - Manual: Avoid C# reflection overhead
 
 **URL:** https://docs.unity3d.com/Manual/performance-gc-avoid-reflection.html
+
+---
+
+## Unity - Manual: Awaitable code example reference
+
+**URL:** https://docs.unity3d.com/Manual/async-awaitable-examples.html
+
+---
+
+## Unity - Manual: Awaitable completion and continuation
+
+**URL:** https://docs.unity3d.com/Manual/async-awaitable-continuations.html
 
 ---
 
@@ -4750,6 +4768,12 @@
 
 ---
 
+## Unity - Manual: Introduction to asynchronous programming with Awaitable
+
+**URL:** https://docs.unity3d.com/Manual/async-awaitable-introduction.html
+
+---
+
 ## Unity - Manual: Introduction to batching meshes
 
 **URL:** https://docs.unity3d.com/Manual/DrawCallBatching.html
@@ -6343,6 +6367,30 @@
 ## Unity - Manual: New in Unity 2023.2
 
 **URL:** https://docs.unity3d.com/Manual/WhatsNew20232.html
+
+---
+
+## Unity - Manual: New in Unity 6.0
+
+**URL:** https://docs.unity3d.com/Manual/WhatsNewUnity6.html
+
+---
+
+## Unity - Manual: New in Unity 6.0 Preview
+
+**URL:** https://docs.unity3d.com/Manual/WhatsNewUnity6Preview.html
+
+---
+
+## Unity - Manual: New in Unity 6.1
+
+**URL:** https://docs.unity3d.com/Manual/WhatsNewUnity61.html
+
+---
+
+## Unity - Manual: New in Unity 6.2
+
+**URL:** https://docs.unity3d.com/Manual/WhatsNewUnity62.html
 
 ---
 
@@ -8776,9 +8824,9 @@
 
 ---
 
-## Unity - Manual: System requirements for Unity 2022.3
+## Unity - Manual: System requirements for Unity 6.2
 
-**URL:** https://docs.unity3d.com/2022.3/Documentation/Manual/system-requirements.html
+**URL:** https://docs.unity3d.com/Manual/system-requirements.html
 
 ---
 
@@ -9400,15 +9448,15 @@
 
 ---
 
-## Unity - Manual: Unity 2022.3 User Manual
+## Unity - Manual: Unity 6.2 User Manual
 
-**URL:** https://docs.unity3d.com/2022.3/Documentation/Manual/index.html
+**URL:** https://docs.unity3d.com/Manual/index.html
 
 ---
 
-## Unity - Manual: Unity 2022.3 User Manual
+## Unity - Manual: Unity 6.2 User Manual
 
-**URL:** https://docs.unity3d.com/2022.3/Documentation/Manual/UnityManual.html
+**URL:** https://docs.unity3d.com/Manual/UnityManual.html
 
 ---
 
@@ -9631,6 +9679,24 @@
 ## Unity - Manual: Upgrade to Unity 2023.2
 
 **URL:** https://docs.unity3d.com/Manual/UpgradeGuide20232.html
+
+---
+
+## Unity - Manual: Upgrade to Unity 6.0
+
+**URL:** https://docs.unity3d.com/Manual/UpgradeGuideUnity6.html
+
+---
+
+## Unity - Manual: Upgrade to Unity 6.1
+
+**URL:** https://docs.unity3d.com/Manual/UpgradeGuideUnity61.html
+
+---
+
+## Unity - Manual: Upgrade to Unity 6.2
+
+**URL:** https://docs.unity3d.com/Manual/UpgradeGuideUnity62.html
 
 ---
 

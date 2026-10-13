@@ -1,11 +1,37 @@
 ---
 name: unity-cleaner
-description: "Find unused assets, duplicate files, and missing references in your Unity project."
+description: Clean up and audit a Unity project
 ---
+
+> **Before calling any skill in this module:** if you are about to call a skill with parameters guessed from its name or description, STOP — read this file (or fetch its schema via `GET /skills/recommend?includeSchema=true`) first. If you already have the parameter definitions from recommend/schema, you may proceed straight to dryRun.
+
+## Triggers
+- Reducing project bloat
+- Hunting duplicate or orphaned assets
+- Auditing before a release
+- 给项目瘦身、排查重复或孤立资源、发布前审计
 
 # Unity Cleaner Skills
 
-> **Safety**: All delete operations default to `dryRun=true`. Set `dryRun=false` to actually delete.
+> **Safety**: `cleaner_delete_assets` uses a **two-step confirmToken handshake**. Call without `confirmToken` to preview; call again with the returned token (5-minute TTL) to actually delete. There is no `dryRun` parameter.
+
+## Guardrails
+
+**Operating Mode** (v1.9 three-tier):
+- **Approval** (default): all analyze/query skills (`cleaner_find_unused_assets`, `cleaner_find_duplicates`, `cleaner_find_missing_references`, `cleaner_get_asset_usage`, `cleaner_find_empty_folders`, `cleaner_find_large_assets`, `cleaner_get_dependency_tree`) are SemiAuto — run directly.
+- **Auto** / **Bypass**: SemiAuto and FullAuto run directly.
+- Auto-forbidden in this module: `cleaner_delete_assets`, `cleaner_delete_empty_folders` (both carry `SkillOperation.Delete`). In Approval/Auto these return `MODE_FORBIDDEN` — they are reachable only under Bypass mode or via a user-managed Allowlist entry; the grant flow does **not** unlock them.
+- `cleaner_fix_missing_scripts` is an `Execute | Modify` operation (it replaces missing component references with null in place, no asset deletion), so it **does not** trigger the NeverInSemi gate. In Auto / Bypass it runs directly; in Approval it still requires the standard grant handshake before execution.
+- `cleaner_delete_assets` additionally uses a two-step `confirmToken` handshake even when the mode gate allows it — preview first (no token), then confirm with the returned token (5-minute TTL).
+
+**DO NOT** (common hallucinations):
+- `cleaner_delete` / `cleaner_remove` do not exist → cleaner skills only find/report; use `asset_delete` to actually remove
+- `cleaner_fix` does not exist → use `cleaner_fix_missing_scripts` specifically for missing script references
+- `cleaner_scan` / `cleaner_find_unused` do not exist → use specific skills: `cleaner_find_unused_assets`, `cleaner_find_duplicates`, `cleaner_find_missing_references`, `cleaner_find_empty_folders`, `cleaner_find_large_assets`
+
+**Routing**:
+- To delete found assets → use `asset` module's `asset_delete` / `asset_delete_batch`
+- For project validation → use `validation` module
 
 ## Skills Overview
 
@@ -14,8 +40,13 @@ description: "Find unused assets, duplicate files, and missing references in you
 | `cleaner_find_unused_assets` | Find assets not referenced by others |
 | `cleaner_find_duplicates` | Find duplicate files by content hash |
 | `cleaner_find_missing_references` | Find missing scripts/asset references |
-| `cleaner_delete_assets` | Delete assets (with dryRun protection) |
+| `cleaner_delete_assets` | Delete assets via two-step confirmToken (preview → confirm) |
 | `cleaner_get_asset_usage` | Find what references a specific asset |
+| `cleaner_find_empty_folders` | Find empty folders in the project |
+| `cleaner_find_large_assets` | Find largest assets by file size |
+| `cleaner_delete_empty_folders` | Delete all empty folders |
+| `cleaner_fix_missing_scripts` | Remove missing script components from GameObjects |
+| `cleaner_get_dependency_tree` | Get dependency tree for an asset |
 
 ---
 
@@ -50,7 +81,7 @@ Find duplicate files by MD5 hash.
 | `searchPath` | string | No | "Assets" | Search path |
 | `limit` | int | No | 50 | Max groups |
 
-**Returns**: `{success, duplicateGroupCount, totalWastedBytes, totalWastedMB, groups: [{count, sizeBytes, wastedBytes, files}]}`
+**Returns**: `{success, duplicateGroupCount, totalWastedBytes, totalWastedMB, groups: [{count, sizeBytes, wastedBytes, files}], skipped: [{path, reason}]}` — `skipped` lists files that could not be read for hashing, so they are not silently missing from the groups.
 
 ```python
 # Find duplicate textures
@@ -83,7 +114,9 @@ Delete specified assets with **two-step confirmation**.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `paths` | string[] | Yes | Asset paths to delete |
+| `paths` | string[] | No* | Asset paths to delete |
+
+*Required for this preview step; omitted in Step 2, which deletes exactly the paths already captured by `confirmToken`.
 
 **Returns**: `{action: "preview", confirmToken, assetsToDelete, message}`
 
@@ -121,8 +154,88 @@ Find what objects reference a specific asset.
 
 ```python
 # Check what uses a texture
-result = call_skill("cleaner_get_asset_usage", 
+result = call_skill("cleaner_get_asset_usage",
     assetPath="Assets/Textures/player.png")
+```
+
+### `cleaner_find_empty_folders`
+Find empty folders in the project.
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `searchPath` | string | No | "Assets" | Search path |
+
+**Returns:** `{ success, count, folders }`
+
+```python
+# Find empty folders
+result = call_skill("cleaner_find_empty_folders")
+print(f"Found {result['count']} empty folders")
+```
+
+### `cleaner_find_large_assets`
+Find largest assets by file size.
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `searchPath` | string | No | "Assets" | Search path |
+| `limit` | int | No | 20 | Max results |
+| `minSizeBytes` | long | No | 0 | Minimum file size in bytes |
+
+**Returns:** `{ success, count, assets: [{ path, sizeBytes, sizeMB }] }`
+
+```python
+# Find top 10 largest assets over 1 MB
+result = call_skill("cleaner_find_large_assets", limit=10, minSizeBytes=1048576)
+for a in result['assets']:
+    print(f"{a['sizeMB']:.2f} MB - {a['path']}")
+```
+
+### `cleaner_delete_empty_folders`
+Delete all empty folders.
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `searchPath` | string | No | "Assets" | Search path |
+
+**Returns:** `{ success, deleted, total }`
+
+```python
+# Delete all empty folders
+result = call_skill("cleaner_delete_empty_folders")
+print(f"Deleted {result['deleted']} of {result['total']} empty folders")
+```
+
+### `cleaner_fix_missing_scripts`
+Remove missing script components from GameObjects.
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `includeInactive` | bool | No | true | Include inactive objects |
+
+**Returns:** `{ success, removedComponents }`
+
+```python
+# Remove all missing script components
+result = call_skill("cleaner_fix_missing_scripts")
+print(f"Removed {result['removedComponents']} missing script components")
+```
+
+### `cleaner_get_dependency_tree`
+Get dependency tree for an asset.
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `assetPath` | string | Yes | - | Asset path |
+| `recursive` | bool | No | true | Recursively resolve dependencies |
+
+**Returns:** `{ success, assetPath, dependencyCount, dependencies: [{ path, type }] }`
+
+```python
+# Get full dependency tree for a prefab
+result = call_skill("cleaner_get_dependency_tree",
+    assetPath="Assets/Prefabs/Player.prefab")
+print(f"Dependencies: {result['dependencyCount']}")
 ```
 
 ---
@@ -150,6 +263,12 @@ print(f"📦 {unused['potentiallyUnusedCount']} potentially unused materials")
 # 4. Preview cleanup
 paths_to_delete = [a['path'] for a in unused['assets'][:5]]
 preview = unity_skills.call_skill("cleaner_delete_assets", 
-    paths=paths_to_delete, dryRun=True)
+    paths=paths_to_delete)
 print(f"Would free: {preview['totalMB']:.2f} MB")
+# To actually delete, call again with preview['confirmToken'] within 5 minutes.
 ```
+
+---
+## Exact Signatures
+
+Exact names, parameters, defaults, and returns are defined by `GET /skills/schema` or `unity_skills.get_skill_schema()`, not by this file.

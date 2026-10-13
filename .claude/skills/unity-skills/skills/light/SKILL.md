@@ -1,11 +1,42 @@
 ---
 name: unity-light
-description: "Create and configure lights. Use *_batch skills for 2+ lights."
+description: Create and configure Unity lights
 ---
+
+> **Before calling any skill in this module:** if you are about to call a skill with parameters guessed from its name or description, STOP — read this file (or fetch its schema via `GET /skills/recommend?includeSchema=true`) first. If you already have the parameter definitions from recommend/schema, you may proceed straight to dryRun.
+
+## Triggers
+- Adding or tuning lights
+- Setting up scene lighting
+- Batch-enabling/disabling lights
+- 添加或调校灯光、布置场景照明、批量开关灯光
 
 # Unity Light Skills
 
 > **BATCH-FIRST**: Use `*_batch` skills when operating on 2+ lights.
+
+## Operating Mode
+
+- **Approval** (default): mutating skills (`light_create`, `light_set_properties`, `light_set_properties_batch`, `light_set_enabled`, `light_set_enabled_batch`, `light_add_probe_group`, `light_add_reflection_probe`) need user grant; grant triggers a single server-side execution that returns the result.
+- **Auto / Bypass**: those skills execute directly.
+- Query skills (`light_get_info`, `light_get_properties`, `light_find_all`, `light_get_lightmap_settings`) are `SkillMode.SemiAuto` — they run in all three modes without grant.
+- This module contains **no** Delete / PlayMode / Reload / high-risk skills (no NeverInSemi); to remove a Light, call `gameobject_delete` from the `gameobject` module.
+
+## Guardrails
+
+**DO NOT** (common hallucinations):
+- `light_add` does not exist → use `light_create` (creates a new light GameObject)
+- `light_set_color` / `light_set_intensity` do not exist → use `light_set_properties` (sets color, intensity, range, shadows together)
+- `light_delete` does not exist → use `gameobject_delete` on the light's GameObject
+- `light_set_shadow` does not exist → use `light_set_properties` with the `shadows` parameter
+- `shadows` values are the Unity enum members `None` / `Hard` / `Soft`. Input is matched case-insensitively (`"soft"` still works) but responses always echo the capitalised form, so compare against `Soft`, not `soft`, when verifying
+
+**Routing**:
+- For lightmap baking settings → `light_get_lightmap_settings` (this module)
+- For reflection probes → `light_add_reflection_probe` (this module)
+- For light probe groups → `light_add_probe_group` (this module)
+
+> **Object Targeting**: All single-object skills accept `name` (string) and `instanceId` (int, preferred). Provide at least one. `path` (hierarchy path) is also accepted where noted.
 
 ## Skills Overview
 
@@ -16,8 +47,11 @@ description: "Create and configure lights. Use *_batch skills for 2+ lights."
 
 **No batch needed**:
 - `light_create` - Create a light
-- `light_get_info` - Get light information
+- `light_get_info` - Get light information (`light_get_properties` is an alias of it)
 - `light_find_all` - Find all lights (returns list)
+- `light_add_probe_group` - Add a Light Probe Group with optional grid layout
+- `light_add_reflection_probe` - Create a Reflection Probe at a position
+- `light_get_lightmap_settings` - Inspect Lightmap baking settings
 
 ---
 
@@ -46,48 +80,68 @@ Create a new light.
 | `intensity` | float | No | 1 | Light intensity |
 | `range` | float | No | 10 | Range (Point/Spot) |
 | `spotAngle` | float | No | 30 | Cone angle (Spot only) |
-| `shadows` | string | No | "soft" | none/hard/soft |
+| `shadows` | string | No | "Soft" | `None` / `Hard` / `Soft` |
 
 **Returns**: `{success, name, instanceId, lightType, position, color, intensity, shadows}`
 
-### light_set_properties / light_set_properties_batch
-Configure light properties.
+### light_set_properties
+Configure light properties. Every parameter is optional and omitted ones keep their current value.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `name` | string | No* | Light object name |
 | `instanceId` | int | No* | Instance ID (preferred) |
-| `r`, `g`, `b` | float | No | Color (0-1) |
+| `path` | string | No* | Hierarchy path |
+| `r`, `g`, `b` | float | No | Color (0-1); each channel defaults to the light's current value |
+| `a` | float | No | Colour alpha (0-1) |
 | `intensity` | float | No | Light intensity |
-| `range` | float | No | Range (Point/Spot) |
-| `shadows` | string | No | none/hard/soft |
+| `range` | float | No | Range (Point/Spot only) |
+| `spotAngle` | float | No | Cone angle (Spot only) |
+| `shadows` | string | No | `None` / `Hard` / `Soft` |
+
+**Returns**: `{success, name, applied, skipped, lightType, color, intensity, range, spotAngle, shadows}` — `applied` lists the parameters that took effect, named exactly as you passed them (the colour channels appear individually as `r`, `g`, `b`, `a`, not lumped under `color`), and `skipped` the ones the light type cannot carry (a `range` on a Directional light, a `spotAngle` on anything but a Spot), each with the reason. A parameter in neither list was not supplied.
+
+An unrecognised `shadows` value rejects the **whole call** with `SEMANTIC_INVALID` + `validValues` and applies nothing, so a typo can no longer leave a half-configured light behind.
+
+### light_set_properties_batch
+Configure multiple lights. Each item accepts: `name`/`instanceId`/`path` (identifier) + `r`, `g`, `b`, `a`, `intensity`, `range`, `spotAngle`, `shadows` (all optional). This batch is all-or-nothing: a bad `shadows` value fails that item with `SEMANTIC_INVALID` + `validValues` and names the object in `target`, and rolls back every item the call already applied.
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `items` | json string | Yes | - | JSON array of per-item objects (see example below) |
+
+
+**Returns**: `{success, totalItems, successCount, failCount, results: [{target, success, lightType, applied, skipped, color, intensity, range, spotAngle, shadows}]}` — `applied`/`skipped` follow the same rules as `light_set_properties` (a `range` on a Directional light, or a `spotAngle` on anything but a Spot, is listed in `skipped`, not an error).
 
 ```python
-# Single
-unity_skills.call_skill("light_set_properties", name="TorchLight", intensity=2.0, r=1, g=0.6, b=0.2)
-
-# Batch
 unity_skills.call_skill("light_set_properties_batch", items=[
-    {"name": "Light1", "intensity": 2.0},
-    {"name": "Light2", "intensity": 2.0},
+    {"name": "Light1", "intensity": 2.0, "r": 1, "g": 0.9, "b": 0.8},
+    {"instanceId": 12345, "intensity": 1.5, "shadows": "soft"},
     {"name": "Light3", "intensity": 2.0}
 ])
 ```
 
-### light_set_enabled / light_set_enabled_batch
-Enable or disable lights.
+### light_set_enabled
+Enable or disable a light.
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `name` | string | No* | Light object name |
-| `instanceId` | int | No* | Instance ID |
-| `enabled` | bool | Yes | Enable state |
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `name` | string | No* | - | Light object name |
+| `instanceId` | int | No* | - | Instance ID |
+| `path` | string | No* | - | Hierarchy path |
+| `enabled` | bool | No | `true` | Enable state |
+
+**Returns**: `{success, name, enabled}`
+
+### light_set_enabled_batch
+Enable or disable multiple lights. `enabled` is required on every item (unlike `light_set_enabled`, an omitted value is rejected rather than guessed) — this batch is all-or-nothing.
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `items` | json string | Yes | - | JSON array of per-item objects (see example below) |
+
+
+**Returns**: `{success, totalItems, successCount, failCount, results: [{target, success, enabled}]}`. An item missing `enabled` fails with `MISSING_PARAM` and rolls back every light the call already toggled.
 
 ```python
-# Single
-unity_skills.call_skill("light_set_enabled", name="TorchLight", enabled=False)
-
-# Batch - turn off all torches
 unity_skills.call_skill("light_set_enabled_batch", items=[
     {"name": "Torch1", "enabled": False},
     {"name": "Torch2", "enabled": False},
@@ -102,8 +156,20 @@ Get detailed light information.
 |-----------|------|----------|-------------|
 | `name` | string | No* | Light object name |
 | `instanceId` | int | No* | Instance ID |
+| `path` | string | No* | Hierarchy path |
 
-**Returns**: `{name, instanceId, path, lightType, color, intensity, range, spotAngle, shadows, enabled}`
+**Returns**: `{name, entityId, instanceId, path, lightType, color, intensity, range, spotAngle, shadows, enabled, cullingMask, bounceIntensity}`
+
+### light_get_properties
+Alias of `light_get_info` — same parameters, same response. It exists because the setter is `light_set_properties`, so the matching getter name resolves instead of 404-ing.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `name` | string | No* | Light object name |
+| `instanceId` | int | No* | Instance ID |
+| `path` | string | No* | Hierarchy path |
+
+**Returns**: identical to `light_get_info`.
 
 ### light_find_all
 Find all lights in scene.
@@ -114,6 +180,42 @@ Find all lights in scene.
 | `limit` | int | No | 50 | Max results |
 
 **Returns**: `{count, lights: [{name, instanceId, path, lightType, intensity, enabled}]}`
+
+### `light_add_probe_group`
+Add a Light Probe Group to a GameObject. Optional grid layout: gridX/gridY/gridZ (count per axis), spacingX/spacingY/spacingZ (meters between probes).
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `name` | string | No | null | GameObject name |
+| `instanceId` | int | No | 0 | Instance ID |
+| `path` | string | No | null | Hierarchy path |
+| `gridX` | int | No | 0 | Probe count on X axis |
+| `gridY` | int | No | 0 | Probe count on Y axis |
+| `gridZ` | int | No | 0 | Probe count on Z axis |
+| `spacingX` | float | No | 2 | Meters between probes on X |
+| `spacingY` | float | No | 1.5 | Meters between probes on Y |
+| `spacingZ` | float | No | 2 | Meters between probes on Z |
+
+**Returns:** `{ success, gameObject, probeCount, existed, hasGrid }`
+
+### `light_add_reflection_probe`
+Create a Reflection Probe at a position.
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `probeName` | string | No | "ReflectionProbe" | Probe name |
+| `x`, `y`, `z` | float | No | 0,1,0 | Position |
+| `sizeX`, `sizeY`, `sizeZ` | float | No | 10,10,10 | Probe box size |
+| `resolution` | int | No | 256 | Cubemap resolution |
+
+**Returns:** `{ success, name, instanceId, resolution, size }`
+
+### `light_get_lightmap_settings`
+Get Lightmap baking settings.
+
+No parameters.
+
+**Returns:** `{ success, bakedGI, realtimeGI, lightmapSize, lightmapPadding, isRunning, lightmapCount }`
 
 ---
 
@@ -137,9 +239,8 @@ unity_skills.call_skill("light_set_properties_batch", items=[
 ])
 ```
 
-## Common Light Setups
+## Minimal Example
 
-### Outdoor Scene (Sun)
 ```python
 unity_skills.call_skill("light_create",
     name="Sun", lightType="Directional",
@@ -147,21 +248,7 @@ unity_skills.call_skill("light_create",
 )
 ```
 
-### Indoor Scene (Ceiling Light)
-```python
-unity_skills.call_skill("light_create",
-    name="CeilingLight", lightType="Point",
-    y=3, r=1, g=0.98, b=0.9, intensity=1.5, range=10
-)
-```
-
-### Dramatic Spotlight
-```python
-unity_skills.call_skill("light_create",
-    name="Spotlight", lightType="Spot",
-    y=5, intensity=8, spotAngle=25, shadows="hard"
-)
-```
+---
 
 ## Best Practices
 
@@ -171,3 +258,8 @@ unity_skills.call_skill("light_create",
 4. Limit real-time shadows for performance
 5. Area lights require baking (not real-time)
 6. Use intensity > 1 for HDR/bloom effects
+
+---
+## Exact Signatures
+
+Exact names, parameters, defaults, and returns are defined by `GET /skills/schema` or `unity_skills.get_skill_schema()`, not by this file.
