@@ -1,0 +1,14 @@
+{
+  "name": "Shanhai.Demo.Editor",
+  "rootNamespace": "Shanhai.Demo.Editor",
+  "references": ["Game.State", "Shanhai.Demo", "Hotfix", "Builtin.Runtime", "UnityGameFramework.Runtime", "Unity.TextMeshPro", "Obfuz.Editor", "Builtin.Editor", "UnityGameFramework.Editor", "GameFramework"],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

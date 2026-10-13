@@ -1,0 +1,261 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80237ba69dd94db49886d11c8b093f42, type: 3}
+  m_Name: DemoGameplayConfig
+  m_EditorClassIdentifier:
+  player:
+    hitStunDuration: 0.15
+    maxHealth: 100
+    moveSpeed: 5
+    attackCooldown: 0.35
+    baseAttackDamage: 10
+    comboSecondMultiplier: 1.3
+    comboWindow: 0.8
+    attackWindup: 0.12
+    attackRecovery: 0.2
+    skillDamageMultiplier: 2
+    skillCooldown: 5
+    ultimateDamageMultiplier: 5
+    energyMax: 100
+    energyRegenPerSecond: 5
+    dodgeCooldown: 1.2
+    dodgeInvulnerability: 0.2
+    dodgeDistance: 2
+    dodgeDuration: 0.2
+    reviveCount: 1
+    reviveHealthPercent: 0.5
+  beastMarks:
+  - id: beast_01_crack
+    displayName: "\u88C2\u950B"
+    iconKey: BeastMark_01
+    icon: {fileID: 21300000, guid: 3c9bffea91181364083e1c158b90c38c, type: 3}
+    level: 1
+    slotCost: 1
+    description: "\u666E\u653B\u7B2C\u4E8C\u6BB5\u4F24\u5BB3+20%\uFF1B\u6280\u80FD\u5931\u8861\u7D2F\u8BA1+15%\uFF1B\u5927\u62DB\u4F24\u5BB3+25%\uFF1B\u5C5E\u6027\u653B\u51FB+10%\u3002"
+    attackMultiplier: 1.1
+    defenseMultiplier: 1
+    normalAttackMultiplier: 1.2
+    skillImbalanceMultiplier: 1.15
+    ultimateDamageMultiplier: 1.25
+    attributeAttackPercent: 10
+    attackDamageReductionPercent: 0
+    skillRangePercent: 0
+    ultimateDamageReductionPercent: 0
+    attackSpeedPercent: 0
+    skillCooldownReductionPercent: 0
+    ultimateEnergyGainPercent: 0
+    attributeHealthPercent: 0
+    attributeMoveSpeedPercent: 0
+    normalHitReductionDuration: 0
+    normalAttackMoveSpeedPercent: 0
+    normalAttackMoveSpeedDuration: 0
+    ultimateProtectionDuration: 0
+  - id: beast_02_mountain
+    displayName: "\u9547\u5CB3"
+    iconKey: BeastMark_02
+    icon: {fileID: 21300000, guid: 2ea935129f96a0c479508dbdbabac916, type: 3}
+    level: 1
+    slotCost: 1
+    description: "\u666E\u653B\u547D\u4E2D\u540E\u51CF\u4F2415%\uFF0C\u6301\u7EED1\u79D2\uFF1B\u6280\u80FD\u8303\u56F4+15%\uFF1B\u5927\u62DB\u51CF\u4F2430%\uFF0C\u6301\u7EED0.3\u79D2\uFF1B\u5C5E\u6027\u751F\u547D\u4E0A\u9650+20%\u3002"
+    attackMultiplier: 1
+    defenseMultiplier: 1.1
+    normalAttackMultiplier: 1
+    skillImbalanceMultiplier: 1
+    ultimateDamageMultiplier: 1
+    attributeAttackPercent: 0
+    attackDamageReductionPercent: 15
+    skillRangePercent: 15
+    ultimateDamageReductionPercent: 30
+    attackSpeedPercent: 0
+    skillCooldownReductionPercent: 0
+    ultimateEnergyGainPercent: 0
+    attributeHealthPercent: 20
+    attributeMoveSpeedPercent: 0
+    normalHitReductionDuration: 1
+    normalAttackMoveSpeedPercent: 0
+    normalAttackMoveSpeedDuration: 0
+    ultimateProtectionDuration: 0.3
+  - id: beast_03_shadow
+    displayName: "\u9010\u5F71"
+    iconKey: BeastMark_03
+    icon: {fileID: 21300000, guid: e915ad851d410aa41a5e7470a1900faf, type: 3}
+    level: 1
+    slotCost: 1
+    description: "\u666E\u653B\u5F00\u59CB\u540E\u79FB\u901F+10%\uFF0C\u6301\u7EED1\u79D2\uFF1B\u6280\u80FD\u51B7\u5374-20%\uFF1B\u5927\u62DB\u80FD\u91CF\u6062\u590D+25%\uFF1B\u5C5E\u6027\u79FB\u901F+15%\u3002"
+    attackMultiplier: 1
+    defenseMultiplier: 1
+    normalAttackMultiplier: 1
+    skillImbalanceMultiplier: 1
+    ultimateDamageMultiplier: 1
+    attributeAttackPercent: 0
+    attackDamageReductionPercent: 0
+    skillRangePercent: 0
+    ultimateDamageReductionPercent: 0
+    attackSpeedPercent: 0
+    skillCooldownReductionPercent: 20
+    ultimateEnergyGainPercent: 25
+    attributeHealthPercent: 0
+    attributeMoveSpeedPercent: 15
+    normalHitReductionDuration: 0
+    normalAttackMoveSpeedPercent: 10
+    normalAttackMoveSpeedDuration: 1
+    ultimateProtectionDuration: 0
+  buffs:
+  - id: buff_health
+    displayName: "\u751F\u547D\u5F3A\u5316"
+    level: 1
+    description: "\u751F\u547D\u4E0A\u9650\u63D0\u5347 15%\u3002"
+    value: 0.15
+  - id: buff_attack
+    displayName: "\u653B\u51FB\u5F3A\u5316"
+    level: 1
+    description: "\u653B\u51FB\u63D0\u5347 10%\u3002"
+    value: 0.1
+  - id: buff_speed
+    displayName: "\u8FC5\u6377\u5F3A\u5316"
+    level: 1
+    description: "\u79FB\u52A8\u901F\u5EA6\u63D0\u5347 10%\u3002"
+    value: 0.1
+  - id: buff_normal
+    displayName: "\u666E\u653B\u5F3A\u5316"
+    level: 1
+    description: "\u666E\u653B\u4F24\u5BB3\u63D0\u5347 15%\u3002"
+    value: 0.15
+  - id: buff_skill
+    displayName: "\u6280\u80FD\u5F3A\u5316"
+    level: 1
+    description: "\u6280\u80FD\u51B7\u5374\u7F29\u51CF 10%\u3002"
+    value: 0.1
+  - id: buff_imbalance
+    displayName: "\u5931\u8861\u5F3A\u5316"
+    level: 1
+    description: "\u5931\u8861\u79EF\u7D2F\u63D0\u5347 20%\u3002"
+    value: 0.2
+  enemies:
+  - hitStunDuration: 0.15
+    canStagger: 1
+    staggerThreshold: 30
+    staggerWindow: 3
+    staggerDuration: 2
+    staggerDamageMultiplier: 1.5
+    id: common_beast
+    displayName: "\u666E\u901A\u5C71\u517D"
+    isElite: 0
+    isBoss: 0
+    maxHealth: 60
+    moveSpeed: 3
+    attackDamage: 8
+    attackCooldown: 1.5
+    attackRange: 1.5
+    chargeDuration: 0.35
+    chargeTriggerRange: 4
+    chargeSpeed: 8
+    chargeDistance: 3
+    dropTableId: common_drop
+    secondPhaseHealthRatio: 0.6
+    secondPhaseCooldownMultiplier: 0.7
+    secondPhaseAreaRadius: 3
+    estimatedFightMinSeconds: 120
+    estimatedFightMaxSeconds: 180
+  - hitStunDuration: 0.15
+    canStagger: 1
+    staggerThreshold: 100
+    staggerWindow: 3
+    staggerDuration: 2
+    staggerDamageMultiplier: 1.5
+    id: elite_beast
+    displayName: "\u7CBE\u82F1\u5C71\u517D"
+    isElite: 1
+    isBoss: 0
+    maxHealth: 250
+    moveSpeed: 2.2
+    attackDamage: 15
+    attackCooldown: 1.2
+    attackRange: 1.5
+    chargeDuration: 0.35
+    chargeTriggerRange: 4
+    chargeSpeed: 8
+    chargeDistance: 3
+    dropTableId: elite_drop
+    secondPhaseHealthRatio: 0.6
+    secondPhaseCooldownMultiplier: 0.7
+    secondPhaseAreaRadius: 3
+    estimatedFightMinSeconds: 120
+    estimatedFightMaxSeconds: 180
+  - hitStunDuration: 0.15
+    canStagger: 1
+    staggerThreshold: 200
+    staggerWindow: 3
+    staggerDuration: 2
+    staggerDamageMultiplier: 1.5
+    id: fallen_spire_guardian
+    displayName: "\u5815\u810A\u5B88\u671B\u8005"
+    isElite: 0
+    isBoss: 1
+    maxHealth: 1000
+    moveSpeed: 1.8
+    attackDamage: 20
+    attackCooldown: 2
+    attackRange: 1.5
+    chargeDuration: 0.35
+    chargeTriggerRange: 4
+    chargeSpeed: 8
+    chargeDistance: 3
+    dropTableId: boss_drop
+    secondPhaseHealthRatio: 0.6
+    secondPhaseCooldownMultiplier: 0.7
+    secondPhaseAreaRadius: 3
+    estimatedFightMinSeconds: 120
+    estimatedFightMaxSeconds: 180
+  spawns:
+  - id: common_wave_01
+    enemyId: common_beast
+    spawnPointId: common_01
+    count: 4
+    wave: 1
+    activationRadius: 4
+  - id: elite_wave_01
+    enemyId: elite_beast
+    spawnPointId: elite_01
+    count: 1
+    wave: 2
+    activationRadius: 8
+  - id: boss_spawn
+    enemyId: fallen_spire_guardian
+    spawnPointId: boss_room
+    count: 1
+    wave: 3
+    activationRadius: 2
+  - id: common_wave_02
+    enemyId: common_beast
+    spawnPointId: common_02
+    count: 4
+    wave: 1
+    activationRadius: 4
+  drops:
+  - id: common_drop
+    rewardId: buff_attack
+    chance: 0.5
+    amount: 1
+    guaranteedForBoss: 0
+  - id: elite_drop
+    rewardId: beast_mark_choice
+    chance: 1
+    amount: 1
+    guaranteedForBoss: 0
+  - id: boss_drop
+    rewardId: beast_mark_choice
+    chance: 1
+    amount: 1
+    guaranteedForBoss: 1
+  bossCurrencyReward: 300
+  duplicateMarkCurrency: 100

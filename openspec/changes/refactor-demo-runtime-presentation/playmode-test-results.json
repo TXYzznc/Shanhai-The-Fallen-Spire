@@ -1,0 +1,55 @@
+{
+  "suite": "Shanhai.Demo.Tests",
+  "mode": "PlayMode",
+  "unity": "2022.3.62f3c1",
+  "result": "Passed",
+  "passed": 8,
+  "failed": 0,
+  "startUtc": "2026-10-07 09:52:25Z",
+  "endUtc": "2026-10-07 09:52:28Z",
+  "invocationJobId": "18683c7f",
+  "resultSource": "Unity TestResults.xml",
+  "teardownConsoleErrors": 0,
+  "tests": [
+    {
+      "name": "DemoEnemyStatusTests.EliteChargeAndBossPhaseAreShown",
+      "result": "Passed",
+      "durationSeconds": 0.732816
+    },
+    {
+      "name": "DemoEnemyStatusTests.HealthTracksActualDamageAndDeadEnemyHides",
+      "result": "Passed",
+      "durationSeconds": 0.006403
+    },
+    {
+      "name": "DemoEnemyStatusTests.OffscreenUnbindReuseAndDestroyedHudAreSafe",
+      "result": "Passed",
+      "durationSeconds": 0.004043
+    },
+    {
+      "name": "DemoEnemyStatusTests.StaggerWindowAndRecoveryUseExistingTimers",
+      "result": "Passed",
+      "durationSeconds": 0.278073
+    },
+    {
+      "name": "DemoGameplayAcceptanceTests.DynamicEnemyStatusBindsAndClearsWhenHidden",
+      "result": "Passed",
+      "durationSeconds": 1.443826
+    },
+    {
+      "name": "DemoGameplayAcceptanceTests.LoadoutKeepsFourSlotsAndMutualExclusion",
+      "result": "Passed",
+      "durationSeconds": 0.060022
+    },
+    {
+      "name": "DemoGameplayAcceptanceTests.PlayerDodgeMovesAndSetsInvulnerability",
+      "result": "Passed",
+      "durationSeconds": 0.074739
+    },
+    {
+      "name": "DemoGameplayAcceptanceTests.PlayerHealthRevivesOnceThenRequiresRetry",
+      "result": "Passed",
+      "durationSeconds": 0.061899
+    }
+  ]
+}

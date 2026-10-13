@@ -1,0 +1,14 @@
+{
+  "name": "Shanhai.Demo",
+  "rootNamespace": "Shanhai.Demo",
+  "references": ["Game.State", "Unity.TextMeshPro", "Hotfix", "Builtin.Runtime", "UnityGameFramework.Runtime", "GameFramework"],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

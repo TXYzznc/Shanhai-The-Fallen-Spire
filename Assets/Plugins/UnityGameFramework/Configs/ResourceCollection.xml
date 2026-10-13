@@ -1,18 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <UnityGameFramework>
   <ResourceCollection>
     <Resources>
-      <Resource Name="Config" LoadType="0" Packed="False" />
-      <Resource Name="Core" LoadType="0" Packed="False" />
       <Resource Name="DataTable" LoadType="0" Packed="False" />
       <Resource Name="Entity" LoadType="0" Packed="False" />
-      <Resource Name="HotfixDlls" LoadType="0" Packed="False" />
       <Resource Name="Language" LoadType="0" Packed="False" />
       <Resource Name="Scene" LoadType="0" Packed="False" />
       <Resource Name="ScriptableAssets" LoadType="0" Packed="False" />
       <Resource Name="SharedAssets" LoadType="2" Packed="False" />
       <Resource Name="UI" LoadType="0" Packed="False" />
     </Resources>
-    <Assets />
+    <Assets>
+      <Asset Guid="07512f1f1bcd03c4f9560a59e32365fb" ResourceName="Language" />
+      <Asset Guid="0a0680d1e7df6ba4f90d2d47d55e6121" ResourceName="UI" />
+      <Asset Guid="13b0b1255d7d6cf44a4d1987723460ef" ResourceName="ScriptableAssets" />
+      <Asset Guid="14a450f08a5d4cd478677993a33285e1" ResourceName="UI" />
+      <Asset Guid="18868d941a71f02498051516873367ce" ResourceName="Scene" />
+      <Asset Guid="1ad952d59cc71d54dafd852eba91a0a8" ResourceName="UI" />
+      <Asset Guid="1c66644ec1684c2408acfdf93a7d7717" ResourceName="UI" />
+      <Asset Guid="230b0c809e3e6a647af26c803aa90467" ResourceName="SharedAssets" />
+      <Asset Guid="3df84ab5e0aa610448c321130dbca2b7" ResourceName="Scene" />
+      <Asset Guid="3e7f633baa660a64fb1dbf7c28f04393" ResourceName="SharedAssets" />
+      <Asset Guid="4038bdd6374dd724e9d434a91bca84d0" ResourceName="SharedAssets" />
+      <Asset Guid="44b927bad04aa65498ad443edb455c46" ResourceName="SharedAssets" />
+      <Asset Guid="52f749ae6d31fc94288dfe1f9f8896f6" ResourceName="DataTable" />
+      <Asset Guid="533a1dd6c10457349901cef7da38bb0a" ResourceName="Entity" />
+      <Asset Guid="53b9781b792f33841a6a088ec392fbd8" ResourceName="SharedAssets" />
+      <Asset Guid="588ff96c6882fb3448095d7a881bced3" ResourceName="SharedAssets" />
+      <Asset Guid="5b44594c998e5724286154dd9145b5f9" ResourceName="UI" />
+      <Asset Guid="60088dd3b0214654ba9150c7fdda1a8d" ResourceName="DataTable" />
+      <Asset Guid="76c9e50a6a28a474197fc6010eb70d98" ResourceName="Scene" />
+      <Asset Guid="79fc74695f462804599e07177cc093b1" ResourceName="UI" />
+      <Asset Guid="7a5653f68a9c9634bba00eba0c6ef543" ResourceName="Entity" />
+      <Asset Guid="8a4e2875174034b4aabb43c9ca9028a1" ResourceName="SharedAssets" />
+      <Asset Guid="8aa29a0310777a64aa428102d3b24cb6" ResourceName="SharedAssets" />
+      <Asset Guid="98662c21c0b96bc48a6440a4fe486556" ResourceName="DataTable" />
+      <Asset Guid="a29db755b6ae1104a94df297de29cfc8" ResourceName="SharedAssets" />
+      <Asset Guid="a8b4db0723f15cd46a7f85fc78f522a8" ResourceName="SharedAssets" />
+      <Asset Guid="b3875828e0467bf4bbb3c8fccc775cd8" ResourceName="SharedAssets" />
+      <Asset Guid="b854435fd736f13499051acd7c88db3a" ResourceName="Entity" />
+      <Asset Guid="b8f790017d833da45a5aec7344ed4f97" ResourceName="SharedAssets" />
+      <Asset Guid="ba3cb60800740a149afe47b2c3f463d4" ResourceName="Entity" />
+      <Asset Guid="c4e839cf3d001e0499336fb7f53c0310" ResourceName="DataTable" />
+      <Asset Guid="e1a613ebd6f1d6f4a825d14981f3e88d" ResourceName="DataTable" />
+      <Asset Guid="edcc29742c474d0fba520bbc68351624" ResourceName="SharedAssets" />
+    </Assets>
   </ResourceCollection>
 </UnityGameFramework>

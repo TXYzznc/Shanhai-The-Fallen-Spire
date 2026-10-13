@@ -1,0 +1,64 @@
+{
+    "result": "Passed",
+    "utc": "2026-10-07T10:01:40.3894535Z",
+    "unity": "2022.3.62f3c1",
+    "error": "",
+    "playerBuildResult": "Succeeded",
+    "playerBuildReportModifiedUtc": "2026-10-07T09:54:18.6331749Z",
+    "playerBuildBytes": 120731121,
+    "checks": [
+        "deliveredBundles=7",
+        "prefab=Assets/Game/Prefabs/UI/DemoStartMenu.prefab",
+        "prefab=Assets/Game/Prefabs/UI/DemoHud.prefab",
+        "prefab=Assets/Game/Prefabs/Entity/DemoPlayer.prefab",
+        "prefab=Assets/Game/Prefabs/Entity/DemoCommonEnemy.prefab",
+        "prefab=Assets/Game/Prefabs/Entity/DemoEliteEnemy.prefab",
+        "prefab=Assets/Game/Prefabs/Entity/DemoBoss.prefab",
+        "prefab=DemoAttackArc",
+        "prefab=DemoHitParticle",
+        "prefab=DemoDamageText",
+        "prefab=Assets/Game/Prefabs/UI/Item/DemoActionButton.prefab",
+        "prefab=Assets/Game/Prefabs/UI/Item/DemoDamageText.prefab",
+        "prefab=Assets/Game/Prefabs/UI/Item/DemoEnemyStatus.prefab",
+        "prefab=Assets/Game/Prefabs/UI/Item/DemoLoadoutSlot.prefab",
+        "prefab=Assets/Game/Prefabs/UI/Item/DemoRewardCard.prefab",
+        "prefab=Assets/Game/Prefabs/UI/Item/DemoRewardSlot.prefab",
+        "scene=Assets/Game/Scene/Demo/DemoMenu.unity",
+        "scene=Assets/Game/Scene/Demo/DemoMain.unity",
+        "allPackageCopiesByteEqual=true"
+    ],
+    "files": [
+        {
+            "name": "DataTable.dat",
+            "sha256": "ecf164ee07e6e1d4cd3a6e43ea6308184239a1674262b9eef8a8fea35a9dd678"
+        },
+        {
+            "name": "Entity.dat",
+            "sha256": "ade86d9bf489542a6c344f816322f4caffc58e799d6ce7e836ec0531b24e329b"
+        },
+        {
+            "name": "GameFrameworkVersion.dat",
+            "sha256": "fa9dcdf8ba062b4e47912408127d63f53d4a47704f915c5772d9a392935ca407"
+        },
+        {
+            "name": "Language.dat",
+            "sha256": "2453734a1bf087f9282715a43b2cc2c4da86db00377b873b61daf838b4dadc6e"
+        },
+        {
+            "name": "Scene.dat",
+            "sha256": "040a6eb3cc27c02c56695fb4f4808326884e6ee4a30771d8f9cde19325215bdb"
+        },
+        {
+            "name": "ScriptableAssets.dat",
+            "sha256": "ed68e25847ebbcd71990c21005dd9881a47b4654cbac7fb4dee5ea74879c127b"
+        },
+        {
+            "name": "SharedAssets.dat",
+            "sha256": "4918384cb33a057575268a6d577e291c455cec604e8f1c84d74a11db379e6ece"
+        },
+        {
+            "name": "UI.dat",
+            "sha256": "1f79204c0bc92246b32f042aa0bf427f281662726ab32bc5dc2a509ea8c9d5e5"
+        }
+    ]
+}

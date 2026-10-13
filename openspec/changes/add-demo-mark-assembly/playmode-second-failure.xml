@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="20" result="Failed(Child)" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-07 11:31:17Z" end-time="2026-10-07 11:31:21Z" duration="3.661101">
+  <test-suite type="TestSuite" id="1029" name="GameDesinger" fullname="GameDesinger" runstate="Runnable" testcasecount="20" result="Failed" site="Child" start-time="2026-10-07 11:31:17Z" end-time="2026-10-07 11:31:21Z" duration="3.661101" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1026" name="Shanhai.Demo.Tests.dll" fullname="D:/Sourcetree/Shanhai-The-Fallen-Spire/Library/ScriptAssemblies/Shanhai.Demo.Tests.dll" runstate="Runnable" testcasecount="20" result="Failed" site="Child" start-time="2026-10-07 11:31:17Z" end-time="2026-10-07 11:31:21Z" duration="3.645218" total="20" passed="19" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="46580" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1001" name="DemoEnemyStatusTests" fullname="DemoEnemyStatusTests" classname="DemoEnemyStatusTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-07 11:31:17Z" end-time="2026-10-07 11:31:18Z" duration="0.959426" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1005" name="EliteChargeAndBossPhaseAreShown" fullname="DemoEnemyStatusTests.EliteChargeAndBossPhaseAreShown" methodname="EliteChargeAndBossPhaseAreShown" classname="DemoEnemyStatusTests" runstate="Runnable" seed="1486734497" result="Passed" start-time="2026-10-07 11:31:17Z" end-time="2026-10-07 11:31:18Z" duration="0.655703" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[[UnitySkills] [Self-Test] Starting (ProcessJobQueue ticks=21, listener=True)
+]]></output>
+        </test-case>
+        <test-case id="1002" name="HealthTracksActualDamageAndDeadEnemyHides" fullname="DemoEnemyStatusTests.HealthTracksActualDamageAndDeadEnemyHides" methodname="HealthTracksActualDamageAndDeadEnemyHides" classname="DemoEnemyStatusTests" runstate="Runnable" seed="141347806" result="Passed" start-time="2026-10-07 11:31:18Z" end-time="2026-10-07 11:31:18Z" duration="0.008554" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1004" name="OffscreenUnbindReuseAndDestroyedHudAreSafe" fullname="DemoEnemyStatusTests.OffscreenUnbindReuseAndDestroyedHudAreSafe" methodname="OffscreenUnbindReuseAndDestroyedHudAreSafe" classname="DemoEnemyStatusTests" runstate="Runnable" seed="494509635" result="Passed" start-time="2026-10-07 11:31:18Z" end-time="2026-10-07 11:31:18Z" duration="0.005375" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1003" name="StaggerWindowAndRecoveryUseExistingTimers" fullname="DemoEnemyStatusTests.StaggerWindowAndRecoveryUseExistingTimers" methodname="StaggerWindowAndRecoveryUseExistingTimers" classname="DemoEnemyStatusTests" runstate="Runnable" seed="26842513" result="Passed" start-time="2026-10-07 11:31:18Z" end-time="2026-10-07 11:31:18Z" duration="0.265139" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1006" name="DemoGameplayAcceptanceTests" fullname="DemoGameplayAcceptanceTests" classname="DemoGameplayAcceptanceTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-10-07 11:31:18Z" end-time="2026-10-07 11:31:20Z" duration="1.501777" total="4" passed="3" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1010" name="DynamicEnemyStatusBindsAndClearsWhenHidden" fullname="DemoGameplayAcceptanceTests.DynamicEnemyStatusBindsAndClearsWhenHidden" methodname="DynamicEnemyStatusBindsAndClearsWhenHidden" classname="DemoGameplayAcceptanceTests" runstate="Runnable" seed="825331314" result="Passed" start-time="2026-10-07 11:31:18Z" end-time="2026-10-07 11:31:19Z" duration="1.289100" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[<color=#2BD988>------------Set ResourceMode:Package------------</color>
+<color=#2BD988>----------UI Match:0----------</color>
+<color=#2BD988>进入HybridCLR热更流程! 预加载游戏数据...</color>
+<color=#2BD988>初始化游戏设置. 游戏语言:English,系统语言:ChineseSimplified</color>
+<color=#2BD988>Framework preload completed. Entering the generic ready state.</color>
+[Demo.Menu] Ready：标题/开始游戏/退出，尚未开始本局。
+<color=#2BD988>场景加载完成:Demo/DemoMenu</color>
+[Demo.World] HUD已由GF.UI动态加载并绑定当前会话。
+[Demo.Menu] Started：本局场景加载成功，菜单已关闭。
+]]></output>
+        </test-case>
+        <test-case id="1009" name="LoadoutKeepsFourSlotsAndMutualExclusion" fullname="DemoGameplayAcceptanceTests.LoadoutKeepsFourSlotsAndMutualExclusion" methodname="LoadoutKeepsFourSlotsAndMutualExclusion" classname="DemoGameplayAcceptanceTests" runstate="Runnable" seed="32140729" result="Passed" start-time="2026-10-07 11:31:19Z" end-time="2026-10-07 11:31:19Z" duration="0.063535" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1008" name="PlayerDodgeMovesAndSetsInvulnerability" fullname="DemoGameplayAcceptanceTests.PlayerDodgeMovesAndSetsInvulnerability" methodname="PlayerDodgeMovesAndSetsInvulnerability" classname="DemoGameplayAcceptanceTests" runstate="Runnable" seed="1864902749" result="Failed" start-time="2026-10-07 11:31:19Z" end-time="2026-10-07 11:31:20Z" duration="0.073126" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: greater than 0.0f
+  But was:  0.0f
+]]></message>
+            <stack-trace><![CDATA[at DemoGameplayAcceptanceTests+<PlayerDodgeMovesAndSetsInvulnerability>d__2.MoveNext () [0x000c7] in D:\Sourcetree\Shanhai-The-Fallen-Spire\Assets\Tests\Runtime\DemoGameplayAcceptanceTests.cs:75
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e] in .\Library\PackageCache\com.unity.test-framework@1.4.6\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1007" name="PlayerHealthRevivesOnceThenRequiresRetry" fullname="DemoGameplayAcceptanceTests.PlayerHealthRevivesOnceThenRequiresRetry" methodname="PlayerHealthRevivesOnceThenRequiresRetry" classname="DemoGameplayAcceptanceTests" runstate="Runnable" seed="1458947812" result="Passed" start-time="2026-10-07 11:31:20Z" end-time="2026-10-07 11:31:20Z" duration="0.060655" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1011" name="DemoMarkAssemblyTests" fullname="DemoMarkAssemblyTests" classname="DemoMarkAssemblyTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-07 11:31:20Z" end-time="2026-10-07 11:31:21Z" duration="1.033032" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1012" name="AcquisitionDoesNotEquipAndDuplicateOnlyAwardsCurrencyOnce" fullname="DemoMarkAssemblyTests.AcquisitionDoesNotEquipAndDuplicateOnlyAwardsCurrencyOnce" methodname="AcquisitionDoesNotEquipAndDuplicateOnlyAwardsCurrencyOnce" classname="DemoMarkAssemblyTests" runstate="Runnable" seed="2037194881" result="Passed" start-time="2026-10-07 11:31:20Z" end-time="2026-10-07 11:31:20Z" duration="0.509591" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1015" name="AssemblySynchronizesHudAndPausesCombatAndCooldown" fullname="DemoMarkAssemblyTests.AssemblySynchronizesHudAndPausesCombatAndCooldown" methodname="AssemblySynchronizesHudAndPausesCombatAndCooldown" classname="DemoMarkAssemblyTests" runstate="Runnable" seed="1915800625" result="Passed" start-time="2026-10-07 11:31:20Z" end-time="2026-10-07 11:31:20Z" duration="0.202828" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1013" name="EquipRequiresOwnershipAndReplaceMoveUnequipRetainMarks" fullname="DemoMarkAssemblyTests.EquipRequiresOwnershipAndReplaceMoveUnequipRetainMarks" methodname="EquipRequiresOwnershipAndReplaceMoveUnequipRetainMarks" classname="DemoMarkAssemblyTests" runstate="Runnable" seed="987321580" result="Passed" start-time="2026-10-07 11:31:20Z" end-time="2026-10-07 11:31:20Z" duration="0.037399" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1014" name="RevivalRetainsOwnershipAndRestartClearsBoth" fullname="DemoMarkAssemblyTests.RevivalRetainsOwnershipAndRestartClearsBoth" methodname="RevivalRetainsOwnershipAndRestartClearsBoth" classname="DemoMarkAssemblyTests" runstate="Runnable" seed="257833753" result="Passed" start-time="2026-10-07 11:31:20Z" end-time="2026-10-07 11:31:20Z" duration="0.031969" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1016" name="RewardWindowPausesAndModalTabInputCannotOpenAssembly" fullname="DemoMarkAssemblyTests.RewardWindowPausesAndModalTabInputCannotOpenAssembly" methodname="RewardWindowPausesAndModalTabInputCannotOpenAssembly" classname="DemoMarkAssemblyTests" runstate="Runnable" seed="1104221086" result="Passed" start-time="2026-10-07 11:31:20Z" end-time="2026-10-07 11:31:20Z" duration="0.083840" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1017" name="SemanticTabAndEscapeOperateWhilePaused" fullname="DemoMarkAssemblyTests.SemanticTabAndEscapeOperateWhilePaused" methodname="SemanticTabAndEscapeOperateWhilePaused" classname="DemoMarkAssemblyTests" runstate="Runnable" seed="219373565" result="Passed" start-time="2026-10-07 11:31:20Z" end-time="2026-10-07 11:31:21Z" duration="0.145056" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1018" name="DemoRewardHoverTests" fullname="DemoRewardHoverTests" classname="DemoRewardHoverTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-07 11:31:21Z" end-time="2026-10-07 11:31:21Z" duration="0.123716" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1019" name="MovingInsideEachRewardCardKeepsItsOwnDescriptionForMarksAndBuffs" fullname="DemoRewardHoverTests.MovingInsideEachRewardCardKeepsItsOwnDescriptionForMarksAndBuffs" methodname="MovingInsideEachRewardCardKeepsItsOwnDescriptionForMarksAndBuffs" classname="DemoRewardHoverTests" runstate="Runnable" seed="959871834" result="Passed" start-time="2026-10-07 11:31:21Z" end-time="2026-10-07 11:31:21Z" duration="0.115562" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1020" name="GameStateTests" fullname="GameStateTests" classname="GameStateTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-07 11:31:21Z" end-time="2026-10-07 11:31:21Z" duration="0.017644" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1025" name="DisabledAndDestroyedWindowRestoreOriginalTimeScale" fullname="GameStateTests.DisabledAndDestroyedWindowRestoreOriginalTimeScale" methodname="DisabledAndDestroyedWindowRestoreOriginalTimeScale" classname="GameStateTests" runstate="Runnable" seed="681202277" result="Passed" start-time="2026-10-07 11:31:21Z" end-time="2026-10-07 11:31:21Z" duration="0.001786" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1024" name="DuplicateRegistrationIsRejectedWithoutChangingCount" fullname="GameStateTests.DuplicateRegistrationIsRejectedWithoutChangingCount" methodname="DuplicateRegistrationIsRejectedWithoutChangingCount" classname="GameStateTests" runstate="Runnable" seed="1616570035" result="Passed" start-time="2026-10-07 11:31:21Z" end-time="2026-10-07 11:31:21Z" duration="0.001201" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1021" name="RegisteredWindowsPauseUntilLastClose" fullname="GameStateTests.RegisteredWindowsPauseUntilLastClose" methodname="RegisteredWindowsPauseUntilLastClose" classname="GameStateTests" runstate="Runnable" seed="1430371280" result="Passed" start-time="2026-10-07 11:31:21Z" end-time="2026-10-07 11:31:21Z" duration="0.000493" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1022" name="RepeatedOpenCloseAndUnregisterAreIdempotent" fullname="GameStateTests.RepeatedOpenCloseAndUnregisterAreIdempotent" methodname="RepeatedOpenCloseAndUnregisterAreIdempotent" classname="GameStateTests" runstate="Runnable" seed="1489446801" result="Passed" start-time="2026-10-07 11:31:21Z" end-time="2026-10-07 11:31:21Z" duration="0.000306" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1023" name="StateEventsOnlyPublishTransitionsAndLateOwnersCannotAffectNewSession" fullname="GameStateTests.StateEventsOnlyPublishTransitionsAndLateOwnersCannotAffectNewSession" methodname="StateEventsOnlyPublishTransitionsAndLateOwnersCannotAffectNewSession" classname="GameStateTests" runstate="Runnable" seed="289264023" result="Passed" start-time="2026-10-07 11:31:21Z" end-time="2026-10-07 11:31:21Z" duration="0.000756" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/86135/AppData/LocalLow/DefaultCompany/GameDesinger\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

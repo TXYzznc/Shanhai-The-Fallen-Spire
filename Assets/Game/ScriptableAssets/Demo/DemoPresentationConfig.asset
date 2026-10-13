@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43297c46b85fb542a0d92634c2a3824, type: 3}
+  m_Name: DemoPresentationConfig
+  m_EditorClassIdentifier:
+  menuPrefabAsset: Assets/Game/Prefabs/UI/DemoStartMenu.prefab
+  menuSceneAsset: Assets/Game/Scene/Demo/DemoMenu.unity
+  gameSceneAsset: Assets/Game/Scene/Demo/DemoMain.unity
+  hudPrefabAsset: Assets/Game/Prefabs/UI/DemoHud.prefab
+  combatOverlayPrefabAsset: Assets/Game/Prefabs/UI/DemoCombatOverlay.prefab
+  rewardPrefabAsset: Assets/Game/Prefabs/UI/DemoRewardChoice.prefab
+  assemblyPrefabAsset: Assets/Game/Prefabs/UI/DemoMarkAssembly.prefab
+  completionPrefabAsset: Assets/Game/Prefabs/UI/DemoCompletion.prefab
+  gameplayConfig: {fileID: 11400000, guid: edcc29742c474d0fba520bbc68351624, type: 2}
+  playerPrefabAsset: Assets/Game/Prefabs/Entity/DemoPlayer.prefab
+  commonEnemyPrefabAsset: Assets/Game/Prefabs/Entity/DemoCommonEnemy.prefab
+  eliteEnemyPrefabAsset: Assets/Game/Prefabs/Entity/DemoEliteEnemy.prefab
+  bossPrefabAsset: Assets/Game/Prefabs/Entity/DemoBoss.prefab
+  attackArcPrefab: {fileID: 2168052378558267578, guid: 8aa29a0310777a64aa428102d3b24cb6,
+    type: 3}
+  hitParticlePrefab: {fileID: 9193492368941330744, guid: b3875828e0467bf4bbb3c8fccc775cd8,
+    type: 3}
+  damageTextPrefab: {fileID: 7624185118073889779, guid: 44b927bad04aa65498ad443edb455c46,
+    type: 3}
+  attackCapacity: 8
+  hitCapacity: 24
+  textCapacity: 24
+  uiGroup: Default

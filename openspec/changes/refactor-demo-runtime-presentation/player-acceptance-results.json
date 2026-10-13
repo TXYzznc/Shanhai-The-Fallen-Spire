@@ -1,0 +1,34 @@
+{
+  "startedUtc": "2026-10-07T09:32:47.668Z",
+  "window": {
+    "app": "process:D:\\Sourcetree\\Shanhai-The-Fallen-Spire\\BuildApp\\ShanhaiDemoWindows\\ShanhaiDemo.exe",
+    "id": 1835072,
+    "title": "GameDesinger"
+  },
+  "packageSha256": "f996d9978ef179ce7037bc0928907ebec09775b59e2b76c3d96b979377283d91",
+  "checks": [
+    {
+      "name": "titleAndQuit",
+      "result": "Passed",
+      "utc": "2026-10-07T09:32:47.857Z",
+      "processEnded": true
+    },
+    {
+      "name": "startDoubleClick",
+      "result": "Passed",
+      "evidence": "Started.png; Ready/Started logs once"
+    },
+    {
+      "name": "reviveAndSecondDeathRetry",
+      "result": "Passed",
+      "evidence": "Revived.png and DeathRetry.png; HP34/revives0 followed by HP100/revives1 reset"
+    }
+  ],
+  "observations": [
+    {
+      "name": "damage",
+      "evidence": "ActualDamage.png, UltimateDamage.png",
+      "actual": "10.0/50.0/60.0 visible; Q energy consumed"
+    }
+  ]
+}
